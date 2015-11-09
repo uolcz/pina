@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Pina::RestAdapter do
   let(:payload) { Pina::Models::Contact.new(name: 'bla') }
+  let(:id)      { 'imaginary' }
 
   before do
     Pina.configure do |config|
@@ -13,6 +14,14 @@ RSpec.describe Pina::RestAdapter do
     stub_request(:get, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
       with(:headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
       to_return(:status => 200)
+
+    stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
+      with(:body => "name=bla", :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
+      to_return(:status => 201, :body => "", :headers => {})
+
+    stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary").
+      with(:body => "name=bla", :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
+      to_return(:status => 200, :body => "", :headers => {})
   end
 
   describe 'get' do
@@ -48,6 +57,18 @@ RSpec.describe Pina::RestAdapter do
   end
 
   describe 'patch' do
+    it 'raises ConfigurationNotSet exception' do
+      Pina.configuration = nil
+      expect { Pina::RestAdapter.patch(:contacts, id, payload) }.to raise_exception Pina::ConfigurationNotSet
+    end
 
+    it 'returns response object' do
+      expect(Pina::RestAdapter.patch(:contacts, id, payload)).to be_a Pina::RestAdapter::Response
+    end
+
+    it 'response has ok? set to true' do
+      response = Pina::RestAdapter.patch(:contacts, id, payload)
+      expect(response.ok?).to eq true
+    end
   end
 end

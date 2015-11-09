@@ -41,6 +41,8 @@ module Pina
 
     def base_url
       SCHEME + tenant + API_PATH + "#{api_version}/"
+      # HACK: to use gem at localhost setting
+      #'http://hronek-fantozzi-dev.localhost:3000/api/v1/'
     end
   end
 end

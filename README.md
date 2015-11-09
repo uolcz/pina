@@ -1,8 +1,6 @@
 # Pina
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pina`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple client for Fantozzi REST API.
 
 ## Installation
 
@@ -22,7 +20,63 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Before you start using Pina you have to configure it.
+
+```ruby
+Pina.configure do |config|
+  config.email = 'your_email@domain.com'
+  config.tenant = 'your tenant database name'
+  config.api_token = 'your secret token'
+  config.api_version = :v1
+end
+```
+
+Note that you dont have to explicitly set api_version, it is set automatically
+to v1.
+
+Now you can start querying REST API.
+
+### All contacts
+
+```ruby
+Pina::Contact.all
+```
+
+Gets all contacts from your database. Results are paginated and you can access
+next or previous page like this:
+
+```ruby
+contacts = Pina::Contact.all
+result.next_page
+```
+
+or
+
+```ruby
+contacts = Pina::Contact.all
+result.previous_page
+```
+
+### Fetching specific contact
+
+```ruby
+Pina::Contact.find('contact_name')
+```
+
+### Create new contact
+
+```ruby
+contact = Pina::Models::Contact.new
+Pina::Contact.create(contact)
+```
+
+### Update existing contact
+
+```ruby
+contact = Pina::Contact.find('existing')
+contact.email = 'brand_new@email.com'
+Pina::Contact.update('existing', contact)
+```
 
 ## Development
 

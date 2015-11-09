@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "pina"
   spec.version       = Pina::VERSION
   spec.authors       = ["Pavel Hronek"]
-  spec.email         = ["hronek.pav@seznam.cz"]
+  spec.email         = ["hronek@uol.cz"]
 
   spec.summary       = %q{Fantozzi API client}
   spec.description   = %q{Fantozzi API client}
@@ -23,8 +23,6 @@ Gem::Specification.new do |spec|
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.10"

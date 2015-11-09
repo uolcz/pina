@@ -5,7 +5,7 @@ module Pina
       def get(resource, id = nil)
         raise ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.get(url(resource,id), headers: auth)
+        request = Typhoeus.get(url(resource, id), headers: auth)
         Response.new(request.response_code, request.body)
       end
 
@@ -17,6 +17,10 @@ module Pina
       end
 
       def patch(resource, id, payload)
+        raise ConfigurationNotSet unless Pina.configuration
+
+        request = Typhoeus.patch(url(resource, id), headers: auth, body: payload.attributes)
+        Response.new(request.response_code, request.body)
       end
 
       private
@@ -32,17 +36,19 @@ module Pina
     end
 
     class Response
+      attr_accessor :body, :status_code
+
       def initialize(status_code, body)
         @status_code = status_code
         @body        = body
       end
 
       def ok?
-        @status_code == 200
+        status_code == 200 || status_code == 201
       end
 
       def to_hash
-        JSON.parse(@body)
+        JSON.parse(body)
       end
     end
   end
