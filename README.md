@@ -27,12 +27,8 @@ Pina.configure do |config|
   config.email = 'your_email@domain.com'
   config.tenant = 'your tenant database name'
   config.api_token = 'your secret token'
-  config.api_version = :v1
 end
 ```
-
-Note that you dont have to explicitly set api_version, it is set automatically
-to v1.
 
 Now you can start querying REST API.
 
@@ -43,18 +39,18 @@ Pina::Contact.all
 ```
 
 Gets all contacts from your database. Results are paginated and you can access
-next or previous page like this:
+first, next or previous page like this:
 
 ```ruby
 contacts = Pina::Contact.all
-result.next_page
+contacts.next_page
 ```
 
-or
-
 ```ruby
 contacts = Pina::Contact.all
-result.previous_page
+contacts.previous_page
+
+contacts.first_page
 ```
 
 ### Fetching specific contact

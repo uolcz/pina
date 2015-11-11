@@ -31,7 +31,8 @@ module Pina
   end
 
   class Configuration
-    attr_accessor :api_token, :api_version, :email, :tenant
+    attr_accessor :api_token, :email, :tenant
+    attr_reader   :api_version
 
     def initialize
       @api_version = DEFAULT_API_VERSION

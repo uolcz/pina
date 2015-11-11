@@ -25,14 +25,9 @@ RSpec.describe Pina do
       before do
         Pina.configure do |config|
           config.api_token   = '123'
-          config.api_version = :v1
           config.email       = 'me@here.com'
           config.tenant      = 'mine'
         end
-      end
-
-      it 'sets api_version' do
-        expect(Pina.configuration.api_version).to eq :v1
       end
 
       it 'sets email' do
