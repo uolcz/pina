@@ -1,4 +1,3 @@
-require 'pry'
 require 'virtus'
 require 'typhoeus'
 

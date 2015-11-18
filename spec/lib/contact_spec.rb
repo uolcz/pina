@@ -29,22 +29,22 @@ RSpec.describe Pina::Contact do
       to_return(:status => 404, body: errors)
 
     stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
-      with(:body => "business_entity=&country_id=&email=&name=test&note=&phone=&specific_symbol=&url=&vatin=",
+      with(:body => "business_entity&country_id&email&name=test&note&phone&specific_symbol&url&vatin",
            :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
       to_return(:status => 201, :body => contact.attributes.to_json)
 
     stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
-      with(:body => "business_entity=&country_id=&email=&name=invalid&note=&phone=&specific_symbol=&url=&vatin=",
+      with(:body => "business_entity&country_id&email&name=invalid&note&phone&specific_symbol&url&vatin",
            :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
       to_return(:status => 422, :body => errors)
 
     stub_request(:patch, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/existing").
-      with(:body => "business_entity=&country_id=&email=&name=test&note=&phone=&specific_symbol=&url=&vatin=",
+      with(:body => "business_entity&country_id&email&name=test&note&phone&specific_symbol&url&vatin",
            :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
       to_return(:status => 200, :body => contact.attributes.to_json)
 
     stub_request(:patch, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary").
-      with(:body => "business_entity=&country_id=&email=&name=invalid&note=&phone=&specific_symbol=&url=&vatin=",
+      with(:body => "business_entity&country_id&email&name=invalid&note&phone&specific_symbol&url&vatin",
            :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
       to_return(:status => 422, :body => errors)
   end
