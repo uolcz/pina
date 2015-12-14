@@ -1,84 +1,75 @@
 require 'spec_helper'
 
 RSpec.describe Pina::Contact do
-  let(:contact)         { Pina::Models::Contact.new(name: 'test') }
-  let(:invalid_contact) { Pina::Models::Contact.new(name: 'invalid') }
-  let(:response)        { Pina::RestAdapter::Response.new(404, '') }
-  let(:body)            { { name: 'bla' }.to_json }
-  let(:errors)          { { message: 'validation failed' }.to_json }
-  let(:id)              { 'existing' }
-  let(:invalid_id)      { 'imaginary' }
+  let(:valid_id)           { 'test' }
+  let(:invalid_id)         { 'imaginary' }
+  let(:contact)            { FactoryGirl.build(:contact) }
+  let(:invalid_contact)    { Pina::Models::Contact.new }
+  let(:contact_with_id)    { FactoryGirl.build(:contact, contact_id: 'test') }
+  let(:contact_diff_vatin) { FactoryGirl.build(:contact_diff_vatin) }
 
   before do
     Pina.configure do |config|
-      config.email     = 'test@test.com'
-      config.tenant    = 'test'
-      config.api_token = '123456'
+      config.email     = ENV['EMAIL']
+      config.tenant    = ENV['TENANT']
+      config.api_token = ENV['API_TOKEN']
     end
-
-    stub_request(:get, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/existing").
-      with(:headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 200, body: body)
-
-    stub_request(:get, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
-      with(:headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 200, body: body)
-
-    stub_request(:get, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary").
-      with(:headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 404, body: errors)
-
-    stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
-      with(:body => "business_entity&country_id&email&name=test&note&phone&specific_symbol&url&vatin",
-           :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 201, :body => contact.attributes.to_json)
-
-    stub_request(:post, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/").
-      with(:body => "business_entity&country_id&email&name=invalid&note&phone&specific_symbol&url&vatin",
-           :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 422, :body => errors)
-
-    stub_request(:patch, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/existing").
-      with(:body => "business_entity&country_id&email&name=test&note&phone&specific_symbol&url&vatin",
-           :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 200, :body => contact.attributes.to_json)
-
-    stub_request(:patch, "https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary").
-      with(:body => "business_entity&country_id&email&name=invalid&note&phone&specific_symbol&url&vatin",
-           :headers => {'Authorization'=>'Basic dGVzdEB0ZXN0LmNvbToxMjM0NTY='}).
-      to_return(:status => 422, :body => errors)
   end
 
   describe 'find' do
     context 'valid id' do
-      it 'returns contact object' do
-        expect(Pina::Contact.find('existing')).to be_a Pina::Models::Contact
+      it 'returns contact object', record: :once do
+        VCR.use_cassette 'find' do
+          expect(Pina::Contact.find(valid_id)).to be_a Pina::Models::Contact
+        end
       end
     end
 
     context 'invalid id' do
       it 'returns response object' do
-        expect(Pina::Contact.find('imaginary')).to be_a Pina::RestAdapter::Response
+        VCR.use_cassette 'find_invalid', record: :once do
+          expect(Pina::Contact.find(invalid_id)).to be_a Pina::RestAdapter::Response
+        end
+      end
+
+      it 'returns 404 status code' do
+        VCR.use_cassette 'find_invalid', record: :once do
+          response = Pina::Contact.find(invalid_id)
+          expect(response.status_code).to eq 404
+        end
       end
     end
   end
 
   describe 'all' do
-    it 'returns all contacts' do
-      expect(Pina::Contact.all).to be_a Pina::Models::ContactList
+    it 'returns all contacts', record: :once do
+      VCR.use_cassette 'all' do
+        expect(Pina::Contact.all).to be_a Pina::Models::ContactList
+      end
     end
   end
 
   describe 'create' do
     context 'valid contact' do
       it 'returns contact object' do
-        expect(Pina::Contact.create(contact)).to be_a Pina::Models::Contact
+        VCR.use_cassette 'create', record: :once do
+          expect(Pina::Contact.create(contact)).to be_a Pina::Models::Contact
+        end
       end
     end
 
     context 'invalid contact' do
       it 'returns response object' do
-        expect(Pina::Contact.create(invalid_contact)).to be_a Pina::RestAdapter::Response
+        VCR.use_cassette 'create_invalid', record: :once do
+          expect(Pina::Contact.create(invalid_contact)).to be_a Pina::RestAdapter::Response
+        end
+      end
+
+      it 'returns 422 status code' do
+        VCR.use_cassette 'create_invalid', record: :once do
+          response = Pina::Contact.create(invalid_contact)
+          expect(response.status_code).to eq 422
+        end
       end
     end
   end
@@ -86,13 +77,39 @@ RSpec.describe Pina::Contact do
   describe 'update' do
     context 'valid contact' do
       it 'returns contact object' do
-        expect(Pina::Contact.update(id, contact)).to be_a Pina::Models::Contact
+        VCR.use_cassette 'update', record: :once do
+          expect(Pina::Contact.update(valid_id, contact_diff_vatin)).to be_a Pina::Models::Contact
+        end
       end
     end
 
     context 'invalid contact' do
       it 'returns response object' do
-        expect(Pina::Contact.update(invalid_id, invalid_contact)).to be_a Pina::RestAdapter::Response
+        VCR.use_cassette 'update_invalid', record: :once do
+          expect(Pina::Contact.update(valid_id, invalid_contact)).to be_a Pina::RestAdapter::Response
+        end
+      end
+
+      it 'returns 422 status code' do
+        VCR.use_cassette 'update_invalid', record: :once do
+          response = Pina::Contact.update(valid_id, invalid_contact)
+          expect(response.status_code).to eq 422
+        end
+      end
+    end
+
+    context 'non-existing contact' do
+      it 'returns response object' do
+        VCR.use_cassette 'update_nonexisting', record: :once do
+          expect(Pina::Contact.update(invalid_id, contact)).to be_a Pina::RestAdapter::Response
+        end
+      end
+
+      it 'returns 404 status code' do
+        VCR.use_cassette 'update_nonexisting', record: :once do
+          response = Pina::Contact.update(invalid_id, contact)
+          expect(response.status_code).to eq 404
+        end
       end
     end
   end

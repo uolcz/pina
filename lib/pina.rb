@@ -1,5 +1,8 @@
-require 'virtus'
+require 'active_support'
+require 'base64'
+require 'json'
 require 'typhoeus'
+require 'virtus'
 
 require 'pina/contact'
 require 'pina/version'
@@ -8,7 +11,6 @@ require 'pina/rest_adapter'
 require 'pina/models/address'
 require 'pina/models/contact'
 require 'pina/models/contact_list'
-
 
 module Pina
   class ConfigurationNotSet < StandardError; end
@@ -31,7 +33,7 @@ module Pina
 
   class Configuration
     attr_accessor :api_token, :email, :tenant
-    attr_reader   :api_version
+    attr_reader :api_version
 
     def initialize
       @api_version = DEFAULT_API_VERSION

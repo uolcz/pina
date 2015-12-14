@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/test
+    body:
+      encoding: UTF-8
+      string: '{"acquisition_country_id":null,"addresses":[],"business_entity":null,"consumption_country_id":null,"contact_id":null,"contract_id":null,"country_id":null,"created_at":null,"creator":{},"days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":null,"email":null,"external_id":null,"hidden":null,"import_received_documents":null,"language_id":null,"mobile_phone":null,"modifier_id":null,"name":null,"note":null,"percent_discount":null,"phone":null,"price_list":{},"response":null,"sipo_number":null,"specific_symbol":null,"tin":null,"unreliable_payer":null,"updated_at":null,"url":null,"vat_payer":null,"vatin":null}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - Basic ZGVtb0B1Y2V0bmljdHZpLW9uLWxpbmUuY3o6SmJHSnhaNkd5WVhSRmZoemdFOF9yQQ==
+      Accept-Encoding:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Thu, 10 Dec 2015 10:31:14 GMT
+      Server:
+      - Apache
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - efe0aeb0-1394-4ffa-b0d5-8ff408bd9cdd
+      X-Runtime:
+      - '0.182901'
+      X-Powered-By:
+      - Phusion Passenger 4.0.37
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      Content-Length:
+      - '671'
+      Status:
+      - 422 Unprocessable Entity
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJtZXNzYWdlIjoiVmFsaWRhdGlvbiBmYWlsZWQiLCJlcnJvcnMiOlt7InJl
+        c291cmNlIjoiQ29udGFjdCIsImZpZWxkIjoibmFtZSIsImNvZGUiOiJqZSBw
+        b3Zpbm7DoSBwb2xvxb5rYSJ9LHsicmVzb3VyY2UiOiJDb250YWN0IiwiZmll
+        bGQiOiJuYW1lIiwiY29kZSI6ImplIHBvdmlubsOhIHBvbG/FvmthIn0seyJy
+        ZXNvdXJjZSI6IkNvbnRhY3QiLCJmaWVsZCI6ImNvdW50cnkiLCJjb2RlIjoi
+        amUgcG92aW5uw6EgcG9sb8W+a2EifSx7InJlc291cmNlIjoiQ29udGFjdCIs
+        ImZpZWxkIjoiZHVwbGljYXRlX3ZhcmlhYmxlX3N5bWJvbCIsImNvZGUiOiJu
+        ZW7DrSB2IHNlem5hbXUgcG92b2xlbsO9Y2ggaG9kbm90In0seyJyZXNvdXJj
+        ZSI6IkNvbnRhY3QiLCJmaWVsZCI6InZhdF9wYXllciIsImNvZGUiOiJuZW7D
+        rSB2IHNlem5hbXUgcG92b2xlbsO9Y2ggaG9kbm90In0seyJyZXNvdXJjZSI6
+        IkNvbnRhY3QiLCJmaWVsZCI6ImltcG9ydF9yZWNlaXZlZF9kb2N1bWVudHMi
+        LCJjb2RlIjoiamUgcG92aW5uw6EgcG9sb8W+a2EifV0sImRvY3VtZW50YXRp
+        b25fdXJsIjoiaHR0cHM6Ly90ZXN0LnVjZXRuaWN0dmkuYm9ub2JvLmN6L2Zh
+        cS9ydWJ5X2FwaSIsIl9tZXRhIjp7ImhyZWYiOiJodHRwczovL3Rlc3QudWNl
+        dG5pY3R2aS5ib25vYm8uY3ovYXBpL3YxL2NvbnRhY3RzL3Rlc3QifX0=
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/test
+  recorded_at: Thu, 10 Dec 2015 10:31:15 GMT
+recorded_with: VCR 2.9.3

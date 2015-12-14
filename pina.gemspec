@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Pavel Hronek']
   spec.email         = ['hronek@uol.cz']
 
-  spec.summary       = %q{Fantozzi REST API client}
-  spec.description   = %q{Fantozzi REST API client}
-  spec.homepage      = "https://github.com/ucetnictvi-on-line/pina"
+  spec.summary       = 'Fantozzi REST API client'
+  spec.description   = 'Fantozzi REST API client'
+  spec.homepage      = 'https://github.com/ucetnictvi-on-line/pina'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
   else
-    raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
+    fail 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -29,9 +29,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'factory_girl'
+  spec.add_development_dependency 'dotenv'
 
   spec.add_runtime_dependency 'typhoeus'
   spec.add_runtime_dependency 'virtus'
+  spec.add_runtime_dependency 'activesupport'
 end

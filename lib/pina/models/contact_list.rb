@@ -5,6 +5,7 @@ module Pina
 
       attribute :items, Array[Contact]
       attribute :_meta
+      attribute :response
 
       def next_page
         Pina::Contact.all(extract_next_page)
@@ -22,22 +23,18 @@ module Pina
 
       def extract_next_page
         string = _meta['pagination']['next']
-        if string
-          index = string.index('?')
-          string[index..-1]
-        else
-          nil
-        end
+        return unless string
+
+        index = string.index('?')
+        string[index..-1]
       end
 
       def extract_prev_page
         string = _meta['pagination']['prev']
-        if string
-          index = string.index('?')
-          string[index..-1]
-        else
-          nil
-        end
+        return unless string
+
+        index = string.index('?')
+        string[index..-1]
       end
     end
   end

@@ -1,33 +1,44 @@
 module Pina
   class RestAdapter
     class << self
-
       def get(resource, id = nil)
-        raise ConfigurationNotSet unless Pina.configuration
+        fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.get(url(resource, id), headers: auth)
+        request = Typhoeus.get(url(resource, id), headers:  auth)
         Response.new(request.response_code, request.body)
       end
 
       def post(resource, payload)
-        raise ConfigurationNotSet unless Pina.configuration
+        fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.post(url(resource, nil), headers: auth, body: payload.attributes)
+        request = Typhoeus.post(url(resource, nil), headers: auth
+          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
+
         Response.new(request.response_code, request.body)
       end
 
       def patch(resource, id, payload)
-        raise ConfigurationNotSet unless Pina.configuration
+        fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.patch(url(resource, id), headers: auth, body: payload.attributes)
+        request = Typhoeus.patch(url(resource, id), headers: auth
+          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
+
         Response.new(request.response_code, request.body)
       end
 
       private
 
+      def content_type
+        {
+          'Accept-Encoding' => 'application/json',
+          'Content-Type' =>  'application/json'
+        }
+      end
+
       def auth
-        { Authorization: 'Basic ' + Base64.
-          strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}") }
+        { 'Authorization' => 'Basic ' + Base64
+          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}")
+        }
       end
 
       def url(resource, id)
