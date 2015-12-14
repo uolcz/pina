@@ -28,6 +28,7 @@ module Pina
       attribute :phone
       attribute :price_list, Hash
       attribute :response
+      attribute :status
       attribute :sipo_number
       attribute :specific_symbol
       attribute :tin

@@ -19,6 +19,7 @@ module Pina
       attribute :phone
       attribute :postal_code
       attribute :response
+      attribute :status
       attribute :street
       attribute :updated_at
       attribute :url
