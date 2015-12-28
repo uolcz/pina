@@ -1,5 +1,12 @@
 # Pina
 
+[![Gem Version](https://badge.fury.io/rb/pina.png)](http://badge.fury.io/rb/pina)
+[![Build Status](https://travis-ci.org/ucetnictvi-on-line/pina.png?branch=master)](https://travis-ci.org/ucetnictvi-on-line/pina)
+[![Dependency Status](https://gemnasium.com/ucetnictvi-on-line/pina.svg)](https://gemnasium.com/ucetnictvi-on-line/pina)
+[![Code Climate](https://codeclimate.com/github/ucetnictvi-on-line/pina/badges/gpa.svg)](https://codeclimate.com/github/ucetnictvi-on-line/pina)
+[![Test Coverage](https://codeclimate.com/github/ucetnictvi-on-line/pina/badges/coverage.svg)](https://codeclimate.com/github/ucetnictvi-on-line/pina)
+
+
 Simple client for Fantozzi REST API.
 
 ## Installation
