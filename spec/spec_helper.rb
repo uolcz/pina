@@ -6,6 +6,9 @@ require 'factory_girl'
 require 'dotenv'
 Dotenv.load
 
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 require 'factories/contact'
 
 RSpec.configure do |_config|
