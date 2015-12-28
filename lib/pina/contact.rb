@@ -1,6 +1,10 @@
 module Pina
   class Contact
     class << self
+      def new(params = nil)
+        Pina::Models::Contact.new(params)
+      end
+
       def find(id)
         response = Pina::RestAdapter.get(:contacts, id)
 
