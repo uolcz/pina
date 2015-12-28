@@ -34,7 +34,8 @@ RSpec.describe Pina::Contact do
     context 'invalid id' do
       it 'returns response object' do
         VCR.use_cassette 'find_invalid' do
-          expect(Pina::Contact.find(invalid_id)).to be_a Pina::RestAdapter::Response
+          expect(Pina::Contact.find(invalid_id))
+            .to be_a Pina::RestAdapter::Response
         end
       end
 
@@ -67,7 +68,8 @@ RSpec.describe Pina::Contact do
     context 'invalid contact' do
       it 'returns response object' do
         VCR.use_cassette 'create_invalid' do
-          expect(Pina::Contact.create(invalid_contact)).to be_a Pina::RestAdapter::Response
+          expect(Pina::Contact.create(invalid_contact))
+            .to be_a Pina::RestAdapter::Response
         end
       end
 
@@ -84,7 +86,8 @@ RSpec.describe Pina::Contact do
     context 'valid contact' do
       it 'returns contact object' do
         VCR.use_cassette 'update' do
-          expect(Pina::Contact.update(valid_id, contact_diff_vatin)).to be_a Pina::Models::Contact
+          expect(Pina::Contact.update(valid_id, contact_diff_vatin))
+            .to be_a Pina::Models::Contact
         end
       end
     end
@@ -92,7 +95,8 @@ RSpec.describe Pina::Contact do
     context 'invalid contact' do
       it 'returns response object' do
         VCR.use_cassette 'update_invalid' do
-          expect(Pina::Contact.update(valid_id, invalid_contact)).to be_a Pina::RestAdapter::Response
+          expect(Pina::Contact.update(valid_id, invalid_contact))
+            .to be_a Pina::RestAdapter::Response
         end
       end
 
@@ -107,7 +111,8 @@ RSpec.describe Pina::Contact do
     context 'non-existing contact' do
       it 'returns response object' do
         VCR.use_cassette 'update_nonexisting' do
-          expect(Pina::Contact.update(invalid_id, contact)).to be_a Pina::RestAdapter::Response
+          expect(Pina::Contact.update(invalid_id, contact))
+            .to be_a Pina::RestAdapter::Response
         end
       end
 

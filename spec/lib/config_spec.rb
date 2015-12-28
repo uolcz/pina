@@ -41,7 +41,8 @@ RSpec.describe Pina do
 
     describe '#base_url' do
       it 'returns base url' do
-        expect(Pina.configuration.base_url).to eq 'https://mine.ucetnictvi.bonobo.cz/api/v1/'
+        expect(Pina.configuration.base_url)
+          .to eq 'https://mine.ucetnictvi.bonobo.cz/api/v1/'
       end
     end
   end

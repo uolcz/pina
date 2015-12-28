@@ -37,7 +37,8 @@ module Pina
 
       def auth
         { 'Authorization' => 'Basic ' + Base64
-          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}")
+          .strict_encode64("#{Pina.configuration.email}:"\
+                           "#{Pina.configuration.api_token}")
         }
       end
 

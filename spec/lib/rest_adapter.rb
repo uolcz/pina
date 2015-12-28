@@ -16,13 +16,15 @@ RSpec.describe Pina::RestAdapter do
     it 'raises ConfigurationNotSet exception' do
       VCR.use_cassette 'get' do
         Pina.configuration = nil
-        expect { Pina::RestAdapter.get(:contacts) }.to raise_exception Pina::ConfigurationNotSet
+        expect { Pina::RestAdapter.get(:contacts) }
+          .to raise_exception Pina::ConfigurationNotSet
       end
     end
 
     it 'returns response object' do
       VCR.use_cassette 'get' do
-        expect(Pina::RestAdapter.get(:contacts)).to be_a Pina::RestAdapter::Response
+        expect(Pina::RestAdapter.get(:contacts))
+          .to be_a Pina::RestAdapter::Response
       end
     end
   end
@@ -31,13 +33,15 @@ RSpec.describe Pina::RestAdapter do
     it 'raises ConfigurationNotSet exception' do
       VCR.use_cassette 'post' do
         Pina.configuration = nil
-        expect { Pina::RestAdapter.post(:contacts, payload) }.to raise_exception Pina::ConfigurationNotSet
+        expect { Pina::RestAdapter.post(:contacts, payload) }
+          .to raise_exception Pina::ConfigurationNotSet
       end
     end
 
     it 'returns response object' do
       VCR.use_cassette 'post' do
-        expect(Pina::RestAdapter.post(:contacts, payload)).to be_a Pina::RestAdapter::Response
+        expect(Pina::RestAdapter.post(:contacts, payload))
+          .to be_a Pina::RestAdapter::Response
       end
     end
   end
@@ -46,13 +50,15 @@ RSpec.describe Pina::RestAdapter do
     it 'raises ConfigurationNotSet exception' do
       VCR.use_cassette 'patch' do
         Pina.configuration = nil
-        expect { Pina::RestAdapter.patch(:contacts, id, payload) }.to raise_exception Pina::ConfigurationNotSet
+        expect { Pina::RestAdapter.patch(:contacts, id, payload) }
+          .to raise_exception Pina::ConfigurationNotSet
       end
     end
 
     it 'returns response object' do
       VCR.use_cassette 'patch' do
-        expect(Pina::RestAdapter.patch(:contacts, id, payload)).to be_a Pina::RestAdapter::Response
+        expect(Pina::RestAdapter.patch(:contacts, id, payload))
+          .to be_a Pina::RestAdapter::Response
       end
     end
   end
