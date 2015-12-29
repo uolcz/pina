@@ -73,7 +73,47 @@ contact = Pina::Contact.find('existing')
 contact.email = 'brand_new@email.com'
 Pina::Contact.update('existing', contact)
 ```
+### All sales invoices
 
+```ruby
+Pina::SalesInvoice.all
+```
+
+Gets all sales invocies from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+invoices = Pina::SalesInvoice.all
+invoices.next_page
+```
+
+```ruby
+invoices = Pina::SalesInvoice.all
+invoices.previous_page
+
+invoices.first_page
+```
+
+### Fetching specific sales invoice
+
+```ruby
+Pina::SalesInvoice.find(invoice_id)
+```
+
+### Create new sales invoice
+
+```ruby
+invoice = Pina::Models::SalesInvoice.new
+Pina::SalesInvoice.create(invoice)
+```
+
+### Update existing sales invoice
+
+```ruby
+invoice = Pina::SalesInvoice.find(2016000001)
+invoice.status = :confirmed
+Pina::SalesInvoice.update(2016000001, invoice)
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

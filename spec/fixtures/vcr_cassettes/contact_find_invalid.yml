@@ -10,38 +10,36 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - Basic ZGVtb0B1Y2V0bmljdHZpLW9uLWxpbmUuY3o6SmJHSnhaNkd5WVhSRmZoemdFOF9yQQ==
+      - Basic aHJvbmVrQHVvbC5jejpDOXpxR2Q5dTNqMW52SXZNekRrRVJR
   response:
     status:
       code: 404
-      message: Not Found
+      message: 'Not Found '
     headers:
-      Date:
-      - Thu, 10 Dec 2015 10:28:28 GMT
-      Server:
-      - Apache
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '155'
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 3722ef4d-a67a-4db0-b201-063df6bf53ce
+      - a1b2f98d-6321-4c99-9986-4230834bbc0b
       X-Runtime:
-      - '0.146166'
-      X-Powered-By:
-      - Phusion Passenger 4.0.37
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubdomains; preload
-      Content-Length:
-      - '155'
-      Status:
-      - 404 Not Found
-      Content-Type:
-      - application/json
+      - '0.129434'
+      Vary:
+      - Origin
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.0/2015-12-25)
+      Date:
+      - Mon, 01 Feb 2016 12:29:30 GMT
+      Connection:
+      - Keep-Alive
     body:
       encoding: UTF-8
       string: '{"status":"404","code":"0004","message":"Record doesn''t exist.","developerMessage":"Record
         doesn''t exist, make sure that you''re requesting correct object"}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary
-  recorded_at: Thu, 10 Dec 2015 10:28:29 GMT
+      effective_url: http://hronek-fantozzi-dev.localhost:3000/api/v1/contacts/imaginary
+  recorded_at: Mon, 01 Feb 2016 12:29:30 GMT
 recorded_with: VCR 2.9.3

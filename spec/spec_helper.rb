@@ -7,6 +7,10 @@ require 'dotenv'
 Dotenv.load
 
 require 'factories/contact'
+require 'factories/sales_invoice'
+require 'factories/sales_item'
+
+require 'support/shared_examples/resource'
 
 RSpec.configure do |_config|
   include FactoryGirl::Syntax::Methods
