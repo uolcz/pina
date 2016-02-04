@@ -1,7 +1,9 @@
 language: ruby
 rvm:
-  - 2.3
+  - 2.3.0
   - 2.2.3
   - 2.2
   - 2.1
+env:
+  - secure: EMAIL=demo@ucetnictvi-on-line.cz TENANT=test API_TOKEN=JbGJxZ6GyYXRFfhzgE8_rA
 before_install: gem install bundler -v 1.10.6

@@ -1,2 +1,6 @@
 Documentation:
   Enabled: false
+
+Metrics/ClassLength:
+  Max: 130
+

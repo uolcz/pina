@@ -5,12 +5,18 @@ require 'typhoeus'
 require 'virtus'
 
 require 'pina/contact'
+require 'pina/sales_invoice'
 require 'pina/version'
 require 'pina/rest_adapter'
+
+require 'pina/utils/pagination'
 
 require 'pina/models/address'
 require 'pina/models/contact'
 require 'pina/models/contact_list'
+require 'pina/models/sales_item'
+require 'pina/models/sales_invoice'
+require 'pina/models/sales_invoice_list'
 
 module Pina
   class ConfigurationNotSet < StandardError; end

@@ -9,12 +9,14 @@ module Pina
       attribute :city
       attribute :country_id
       attribute :created_at
-      attribute :creator, Hash
+      attribute :creator
+      attribute :creator_id
       attribute :email
       attribute :external_id
       attribute :hidden
       attribute :mobile_phone
-      attribute :modifier, Hash
+      attribute :modifier
+      attribute :modifier_id
       attribute :name
       attribute :phone
       attribute :postal_code
@@ -24,6 +26,20 @@ module Pina
       attribute :updated_at
       attribute :url
       attribute '_destroy'
+
+      def creator=(value)
+        return unless value
+
+        self.creator_id = value.values[0]
+        super
+      end
+
+      def modifier=(value)
+        return unless value
+
+        self.modifier_id = value.values[0]
+        super
+      end
     end
   end
 end
