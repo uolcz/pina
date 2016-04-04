@@ -23,6 +23,7 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :typhoeus
   config.default_cassette_options = { record: :once }
+  config.before_record { |i| i.response.body.force_encoding 'UTF-8' }
 end
 
 RSpec.configure do |config|
