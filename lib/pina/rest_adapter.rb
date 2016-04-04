@@ -1,10 +1,10 @@
 module Pina
   class RestAdapter
     class << self
-      def get(resource, id = nil)
+      def get(resource, id_or_params = nil)
         fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.get(url(resource, id), headers:  auth)
+        request = Typhoeus.get(url(resource, id_or_params), headers:  auth)
         Response.new(request.response_code, request.body)
       end
 
@@ -42,8 +42,17 @@ module Pina
         }
       end
 
-      def url(resource, id)
-        Pina.configuration.endpoint + "#{resource}/#{id}"
+      def url(resource, id_or_params)
+        if id_or_params.is_a? Hash
+          params = prepare_params_for_request(id_or_params)
+          Pina.configuration.endpoint + "#{resource}?#{params}"
+        else
+          Pina.configuration.endpoint + "#{resource}/#{id_or_params}"
+        end
+      end
+
+      def prepare_params_for_request(params)
+        params.map { |key, value| "#{URI::escape(key.to_s)}=#{URI::escape(value.to_s)}" }.join('&')
       end
     end
 

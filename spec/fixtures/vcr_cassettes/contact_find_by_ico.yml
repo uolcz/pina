@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3339/api/v1/contacts?ico=27169278
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - Basic ZHVtbXlAZW1haWwuY29tOjEyMw==
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1530'
+      Etag:
+      - W/"e97284b21b115ad3663c5054c095e635"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b9d0cc15-a786-496b-9a8d-0ec616c39831
+      X-Runtime:
+      - '0.076991'
+      Vary:
+      - Origin
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.2.1/2015-02-26)
+      Date:
+      - Mon, 04 Apr 2016 15:08:26 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"items":[{"_meta":{"href":"https://localhost:3339/api/v1/contacts/ÚČETNICTVÍ
+        ON-LINE"},"creator":{"user_id":"pickova"},"modifier":{"user_id":"jkander"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":"27169278","contact_id":"ÚČETNICTVÍ
+        ON-LINE","consumption_country_id":null,"country_id":"CZ","created_at":"2004-11-04T20:44:39.024+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"Účetnictví
+        on-line, s.r.o.","note":"http://www.uol.cz","percent_discount":0.0,"status":"valid","sipo_number":null,"specific_symbol":27169278,"tin":null,"unreliable_payer":false,"updated_at":"2013-05-31T10:59:35.495+02:00","vat_payer":true,"vatin":"CZ27169278","addresses":[{"creator":{"user_id":"uoladm"},"modifier":{"user_id":"uoladm"},"address_id":"PEKAŘSKÁ
+        628/14-PRAHA","address_types":["accounting"],"building_number":null,"city":"Praha
+        5","country_id":"CZ","created_at":"2015-03-11T10:39:32+01:00","email":"info@uol.cz","external_id":null,"hidden":false,"mobile_phone":"+420
+        602 251766","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"150
+        00","status":"valid","street":"Pekařská 628/14","updated_at":"2015-03-11T10:39:32+01:00","url":"k,o"}]}],"_meta":{"href":"https://localhost/api/v1/contacts","pagination":{"first":"https://localhost/api/v1/contacts?page=1","last":"https://localhost/api/v1/contacts?page=1"}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://localhost:3339/api/v1/contacts?vatin=CZ27169278
+  recorded_at: Mon, 04 Apr 2016 15:11:37 GMT
+recorded_with: VCR 3.0.1
