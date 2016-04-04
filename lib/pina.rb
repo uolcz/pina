@@ -33,7 +33,7 @@ module Pina
 
     def configure
       self.configuration ||= Configuration.new
-      self.configuration.clear
+      self.configuration.set_defaults
       yield(configuration)
     end
   end
@@ -43,10 +43,10 @@ module Pina
     attr_reader :api_version
 
     def initialize
-      clear
+      set_defaults
     end
 
-    def clear
+    def set_defaults
       @api_version = DEFAULT_API_VERSION
       @email       = DEFAULT_EMAIL
       @tenant      = DEFAULT_TENANT
