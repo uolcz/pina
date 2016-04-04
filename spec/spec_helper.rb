@@ -29,7 +29,6 @@ VCR.configure do |config|
     save_headers = %w(Total Per-Page Link Content-Type Content-Length)
     i.response.headers.select! { |key| save_headers.include? key }
   end
-
 end
 
 RSpec.configure do |config|
