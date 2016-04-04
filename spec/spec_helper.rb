@@ -24,14 +24,20 @@ VCR.configure do |config|
   config.hook_into :typhoeus
   config.default_cassette_options = { record: :once }
   config.before_record { |i| i.response.body.force_encoding 'UTF-8' }
+  config.before_record do |i|
+    i.request.headers.clear
+    save_headers = %w(Total Per-Page Link Content-Type Content-Length)
+    i.response.headers.select! { |key| save_headers.include? key }
+  end
+
 end
 
 RSpec.configure do |config|
   config.before do
     Pina.configure do |config|
-      config.email       = 'hronek@uol.cz'
-      config.tenant      = 'test'
-      config.api_token   = 'C9zqGd9u3j1nvIvMzDkERQ'
+      config.email       = ENV['EMAIL']
+      config.tenant      = ENV['TENANT'] || 'test'
+      config.api_token   = ENV['API_TOKEN']
     end
   end
 end
