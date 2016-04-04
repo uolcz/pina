@@ -43,7 +43,7 @@ module Pina
       end
 
       def url(resource, id)
-        Pina.configuration.base_url + "#{resource}/#{id}"
+        Pina.configuration.endpoint + "#{resource}/#{id}"
       end
     end
 

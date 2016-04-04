@@ -4,14 +4,6 @@ RSpec.describe Pina::RestAdapter do
   let(:payload) { Pina::Models::Contact.new(name: 'bla') }
   let(:id)      { 'imaginary' }
 
-  before do
-    Pina.configure do |config|
-      config.email     = ENV['EMAIL']
-      config.tenant    = ENV['TENANT']
-      config.api_token = ENV['API_TOKEN']
-    end
-  end
-
   describe 'get' do
     it 'raises ConfigurationNotSet exception' do
       VCR.use_cassette 'get' do

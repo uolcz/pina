@@ -33,6 +33,7 @@ module Pina
 
     def configure
       self.configuration ||= Configuration.new
+      self.configuration.clear
       yield(configuration)
     end
   end
@@ -42,13 +43,22 @@ module Pina
     attr_reader :api_version
 
     def initialize
+      clear
+    end
+
+    def clear
       @api_version = DEFAULT_API_VERSION
       @email       = DEFAULT_EMAIL
       @tenant      = DEFAULT_TENANT
+      @endpoint    = nil
     end
 
-    def base_url
-      SCHEME + tenant + API_PATH + "#{api_version}/"
+    def endpoint=(endpoint)
+      @endpoint = endpoint
+    end
+
+    def endpoint
+      @endpoint ||= SCHEME + tenant + API_PATH + "#{api_version}/"
     end
   end
 end

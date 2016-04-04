@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/
+    uri: http://localhost:3339/api/v1/contacts/
     body:
       encoding: UTF-8
       string: '{"acquisition_country_id":null,"addresses":[],"business_entity":null,"consumption_country_id":null,"contact_id":null,"contract_id":null,"country_id":null,"created_at":null,"creator":null,"creator_id":null,"days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":null,"external_id":null,"hidden":null,"import_received_documents":null,"language_id":null,"modifier":null,"modifier_id":null,"name":null,"note":null,"percent_discount":null,"price_list":null,"price_list_id":null,"response":null,"status":null,"sipo_number":null,"specific_symbol":null,"tin":null,"unreliable_payer":null,"updated_at":null,"vat_payer":null,"vatin":"arbitrary_value"}'

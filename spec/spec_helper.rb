@@ -24,3 +24,11 @@ VCR.configure do |config|
   config.hook_into :typhoeus
   config.default_cassette_options = { record: :once }
 end
+
+RSpec.configure do |config|
+  config.before do
+    Pina.configure do |config|
+      config.endpoint = 'http://localhost:3339/api/v1/'
+    end
+  end
+end
