@@ -29,7 +29,9 @@ end
 RSpec.configure do |config|
   config.before do
     Pina.configure do |config|
-      config.base_url = 'http://localhost:3339/api/v1/'
+      config.email       = 'hronek@uol.cz'
+      config.tenant      = 'test'
+      config.api_token   = 'C9zqGd9u3j1nvIvMzDkERQ'
     end
   end
 end

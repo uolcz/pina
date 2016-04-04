@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3339/api/v1/contacts/testovaci
+    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/testovaci
     body:
       encoding: US-ASCII
       string: ''

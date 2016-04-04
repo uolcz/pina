@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3339/api/v1/sales_invoices/
+    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/
     body:
       encoding: UTF-8
       string: '{"accounting_address":null,"accounting_address_id":null,"bank_account":null,"bank_account_id":null,"buyer_address":null,"buyer_address_id":null,"buyer":null,"buyer_id":null,"contract":null,"contract_id":null,"creator":null,"creator_id":null,"modifier":null,"modifier_id":null,"delivery_address":null,"delivery_address_id":null,"department":null,"department_id":null,"document_recipient_address":null,"document_recipient_address_id":null,"order":null,"order_id":null,"shipper":null,"shipper_id":null,"linked_doc":null,"linked_doc_number":null,"items":null,"cancellation_date":null,"constant_symbol":null,"consumption_country_id":null,"created_at":null,"delivery_note":null,"delivery_note_note":null,"delivery_note_text":null,"due_date":null,"exchange_rate":null,"external_id":null,"invoice_id":null,"issue_date":null,"logo":null,"note":null,"payment_method":null,"percent_discount":null,"public_id":null,"response":null,"rounding":null,"send_by_email":null,"send_by_mail":null,"shipping_method":null,"specific_symbol":null,"status":null,"tax_payment_date":null,"text":null,"total_amount":null,"type":null,"updated_at":null,"variable_symbol":null,"vat1_amount":null,"vat2_amount":null,"vat3_amount":null,"vat_document":null}'

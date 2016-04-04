@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3339/api/v1/sales_invoices/2016000096
+    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2016000096
     body:
       encoding: US-ASCII
       string: ''
