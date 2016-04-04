@@ -39,7 +39,7 @@ RSpec.describe Pina do
       end
     end
 
-    describe '#endpoint' do
+    describe '#base_url' do
       before do
         Pina.configure do |config|
           config.api_token   = '123'
@@ -49,7 +49,7 @@ RSpec.describe Pina do
       end
 
       it 'returns base url' do
-        expect(Pina.configuration.endpoint)
+        expect(Pina.configuration.base_url)
           .to eq 'https://mine.ucetnictvi.bonobo.cz/api/v1/'
       end
     end

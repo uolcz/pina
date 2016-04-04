@@ -50,15 +50,15 @@ module Pina
       @api_version = DEFAULT_API_VERSION
       @email       = DEFAULT_EMAIL
       @tenant      = DEFAULT_TENANT
-      @endpoint    = nil
+      @base_url    = nil
     end
 
-    def endpoint=(endpoint)
-      @endpoint = endpoint
+    def base_url=(base_url)
+      @base_url = base_url
     end
 
-    def endpoint
-      @endpoint ||= SCHEME + tenant + API_PATH + "#{api_version}/"
+    def base_url
+      @base_url ||= SCHEME + tenant + API_PATH + "#{api_version}/"
     end
   end
 end

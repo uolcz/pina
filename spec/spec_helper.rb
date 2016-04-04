@@ -29,7 +29,7 @@ end
 RSpec.configure do |config|
   config.before do
     Pina.configure do |config|
-      config.endpoint = 'http://localhost:3339/api/v1/'
+      config.base_url = 'http://localhost:3339/api/v1/'
     end
   end
 end

@@ -45,9 +45,9 @@ module Pina
       def url(resource, id_or_params)
         if id_or_params.is_a? Hash
           params = prepare_params_for_request(id_or_params)
-          Pina.configuration.endpoint + "#{resource}?#{params}"
+          Pina.configuration.base_url + "#{resource}?#{params}"
         else
-          Pina.configuration.endpoint + "#{resource}/#{id_or_params}"
+          Pina.configuration.base_url + "#{resource}/#{id_or_params}"
         end
       end
 
