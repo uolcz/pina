@@ -40,6 +40,14 @@ RSpec.describe Pina do
     end
 
     describe '#base_url' do
+      before do
+        Pina.configure do |config|
+          config.api_token   = '123'
+          config.email       = 'me@here.com'
+          config.tenant      = 'mine'
+        end
+      end
+
       it 'returns base url' do
         expect(Pina.configuration.base_url)
           .to eq 'https://mine.ucetnictvi.bonobo.cz/api/v1/'

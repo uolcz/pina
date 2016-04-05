@@ -9,14 +9,6 @@ describe Pina::SalesInvoice do
 
   it_behaves_like 'resource'
 
-  before do
-    Pina.configure do |config|
-      config.email     = ENV['EMAIL']
-      config.tenant    = ENV['TENANT']
-      config.api_token = ENV['API_TOKEN']
-    end
-  end
-
   describe 'all' do
     it 'returns all sales invoices' do
       VCR.use_cassette 'sales_invoice_all' do

@@ -6,11 +6,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Authorization:
-      - Basic aHJvbmVrQHVvbC5jejpDOXpxR2Q5dTNqMW52SXZNekRrRVJR
+    headers: {}
   response:
     status:
       code: 404
