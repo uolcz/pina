@@ -9,18 +9,28 @@ RSpec.describe Pina::Contact do
 
   it_behaves_like 'resource'
 
-  before do
-    Pina.configure do |config|
-      config.email     = ENV['EMAIL']
-      config.tenant    = ENV['TENANT']
-      config.api_token = ENV['API_TOKEN']
-    end
-  end
-
   describe 'all' do
     it 'returns all contacts' do
       VCR.use_cassette 'contact_all' do
         expect(Pina::Contact.all).to be_a Pina::Models::ContactList
+      end
+    end
+
+    describe '#find_by' do
+      it 'searches contacts by vatin' do
+        VCR.use_cassette 'contact_find_by_vatin' do
+          contact = Pina::Contact.find_by(vatin: 'CZ27169278')
+
+          expect(contact.name).to eq 'Účetnictví on-line, s.r.o.'
+        end
+      end
+
+      it 'searches contacts by ico' do
+        VCR.use_cassette 'contact_find_by_ico' do
+          contact = Pina::Contact.find_by(ico: '27169278')
+
+          expect(contact.name).to eq 'Účetnictví on-line, s.r.o.'
+        end
       end
     end
   end

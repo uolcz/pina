@@ -5,6 +5,19 @@ module Pina
         Pina::Models::Contact.new(params)
       end
 
+      def find_by(hash)
+        where(hash).items.first
+      end
+
+      def where(hash, page = nil)
+        response = Pina::RestAdapter.get(:contacts, hash)
+
+        return Pina::Models::ContactList.new(attributes(response)) if
+          response.ok?
+
+        response
+      end
+
       def find(id)
         response = Pina::RestAdapter.get(:contacts, id)
 
