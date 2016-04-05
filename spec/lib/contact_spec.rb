@@ -32,6 +32,14 @@ RSpec.describe Pina::Contact do
           expect(contact.name).to eq 'Účetnictví on-line, s.r.o.'
         end
       end
+
+      it 'returns nil if not found' do
+        VCR.use_cassette 'contact_find_by_vatin_not_found' do
+          contact = Pina::Contact.find_by(vatin: 'wrong-vatin')
+
+          expect(contact).to be_nil
+        end
+      end
     end
   end
 end
