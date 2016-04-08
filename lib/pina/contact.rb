@@ -6,7 +6,11 @@ module Pina
       end
 
       def find_by(hash)
-        where(hash).items.first
+        response = where(hash)
+
+        return response.items.first if response.is_a? Pina::Models::ContactList
+
+        response
       end
 
       def where(hash, page = nil)
