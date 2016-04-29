@@ -20,6 +20,7 @@ require 'pina/models/sales_invoice_list'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
+  class ConnectionError < StandardError; end
 
   DEFAULT_API_VERSION = :v1
   DEFAULT_EMAIL       = 'dummy@email.com'

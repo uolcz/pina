@@ -60,6 +60,8 @@ module Pina
       attr_accessor :body, :status_code
 
       def initialize(status_code, body)
+        raise Pina::ConnectionError if status_code == 0
+
         @status_code = status_code
         @body        = body
       end
