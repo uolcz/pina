@@ -35,6 +35,7 @@ module Pina
       attribute :constant_symbol
       attribute :consumption_country_id
       attribute :created_at
+      attribute :currency_id
       attribute :delivery_note
       attribute :delivery_note_note
       attribute :delivery_note_text
