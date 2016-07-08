@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'irb'
+require 'irb/completion'
+
+require 'pina'
+require 'dotenv'
+Dotenv.load
+
+Pina.configure do |config|
+  config.email = ENV['EMAIL']
+  config.tenant = ENV['TENANT']
+  config.api_token = ENV['API_TOKEN']
+end
+
+IRB.start

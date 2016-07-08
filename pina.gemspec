@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Fantozzi REST API client'
   spec.homepage      = 'https://github.com/ucetnictvi-on-line/pina'
   spec.license       = 'MIT'
+  spec.bindir        = 'bin'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

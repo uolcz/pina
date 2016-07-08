@@ -3,6 +3,7 @@ require 'base64'
 require 'json'
 require 'typhoeus'
 require 'virtus'
+require 'uri'
 
 require 'pina/contact'
 require 'pina/sales_invoice'
