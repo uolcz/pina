@@ -3,6 +3,7 @@
 require 'irb'
 require 'irb/completion'
 
+require 'bundler/setup'
 require 'pina'
 require 'dotenv'
 Dotenv.load

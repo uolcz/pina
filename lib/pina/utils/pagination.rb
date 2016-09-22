@@ -2,18 +2,22 @@ module Pina
   module Utils
     module Pagination
       def next_page
-        RESOURCE.all(extract_next_page)
+        resource.all(extract_next_page)
       end
 
       def first_page
-        RESOURCE.all
+        resource.all
       end
 
       def previous_page
-        RESOURCE.all(extract_prev_page)
+        resource.all(extract_prev_page)
       end
 
       private
+
+      def resource
+        Object.const_get("Pina::#{self.class.to_s.split('::').last}")
+      end
 
       def extract_next_page
         string = _meta['pagination']['next']

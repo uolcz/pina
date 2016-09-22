@@ -12,7 +12,7 @@ RSpec.describe Pina::Contact do
   describe 'all' do
     it 'returns all contacts' do
       VCR.use_cassette 'contact_all' do
-        expect(Pina::Contact.all).to be_a Pina::Models::ContactList
+        expect(Pina::Contact.all).to be_a Pina::Collections::Contact
       end
     end
 

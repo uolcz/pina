@@ -1,3 +1,3 @@
 module Pina
-  VERSION = '0.3.1'
+  VERSION = '0.4.1'
 end

@@ -8,7 +8,7 @@ module Pina
       def find_by(hash)
         response = where(hash)
 
-        return response.items.first if response.is_a? Pina::Models::ContactList
+        return response.items.first if response.is_a? Pina::Collections::Contact
 
         response
       end
@@ -16,7 +16,7 @@ module Pina
       def where(hash, page = nil)
         response = Pina::RestAdapter.get(:contacts, hash)
 
-        return Pina::Models::ContactList.new(attributes(response)) if
+        return Pina::Collections::Contact.new(attributes(response)) if
           response.ok?
 
         response
@@ -33,7 +33,7 @@ module Pina
       def all(page = nil)
         response = Pina::RestAdapter.get(:contacts, page)
 
-        return Pina::Models::ContactList.new(attributes(response)) if
+        return Pina::Collections::Contact.new(attributes(response)) if
           response.ok?
 
         response

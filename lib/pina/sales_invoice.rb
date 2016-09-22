@@ -17,7 +17,7 @@ module Pina
       def all(page = nil)
         response = Pina::RestAdapter.get(:sales_invoices, page)
 
-        return Pina::Models::SalesInvoiceList.new(attributes(response)) if
+        return Pina::Collections::SalesInvoice.new(attributes(response)) if
           response.ok?
 
         response

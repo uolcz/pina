@@ -5,19 +5,24 @@ require 'typhoeus'
 require 'virtus'
 require 'uri'
 
+require 'pina/utils/pagination'
+
 require 'pina/contact'
 require 'pina/sales_invoice'
 require 'pina/version'
 require 'pina/rest_adapter'
-
-require 'pina/utils/pagination'
+require 'pina/sales_order'
 
 require 'pina/models/address'
 require 'pina/models/contact'
-require 'pina/models/contact_list'
 require 'pina/models/sales_item'
 require 'pina/models/sales_invoice'
-require 'pina/models/sales_invoice_list'
+require 'pina/models/sales_order'
+
+require 'pina/collections/base'
+require 'pina/collections/contact'
+require 'pina/collections/sales_invoice'
+require 'pina/collections/sales_order'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
