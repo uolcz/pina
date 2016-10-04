@@ -1,3 +1,7 @@
+require 'pina/models/address'
+require 'pina/models/contact'
+require 'pina/collections/contact'
+
 module Pina
   class Contact
     class << self

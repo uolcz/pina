@@ -9,6 +9,8 @@ module Pina
       attribute :creator_id
       attribute :modifier
       attribute :modifier_id
+      attribute :contact
+      attribute :contact_id
       attribute :accounting_address
       attribute :accounting_address_id
       attribute :buyer_address
@@ -51,7 +53,6 @@ module Pina
         super
       end
 
-
       def buyer_address=(value)
         return unless value
 
@@ -70,6 +71,13 @@ module Pina
         return unless value
 
         self.department_id = value.values[0]
+        super
+      end
+
+      def contact=(value)
+        return unless value
+
+        self.contact_id = value.values[0]
         super
       end
 

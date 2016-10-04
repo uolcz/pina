@@ -39,7 +39,9 @@ end
 
 Now you can start querying REST API.
 
-### All contacts
+### Contacts
+
+#### All contacts
 
 ```ruby
 Pina::Contact.all
@@ -60,27 +62,30 @@ contacts.previous_page
 contacts.first_page
 ```
 
-### Fetching specific contact
+#### Fetching specific contact
 
 ```ruby
 Pina::Contact.find('contact_name')
 ```
 
-### Create new contact
+#### Create new contact
 
 ```ruby
 contact = Pina::Models::Contact.new
 Pina::Contact.create(contact)
 ```
 
-### Update existing contact
+#### Update existing contact
 
 ```ruby
 contact = Pina::Contact.find('existing')
 contact.email = 'brand_new@email.com'
 Pina::Contact.update('existing', contact)
 ```
-### All sales invoices
+
+### Sales Invoices
+
+#### All sales invoices
 
 ```ruby
 Pina::SalesInvoice.all
@@ -101,26 +106,93 @@ invoices.previous_page
 invoices.first_page
 ```
 
-### Fetching specific sales invoice
+#### Fetching specific sales invoice
 
 ```ruby
 Pina::SalesInvoice.find(invoice_id)
 ```
 
-### Create new sales invoice
+#### Create new sales invoice
 
 ```ruby
 invoice = Pina::Models::SalesInvoice.new
 Pina::SalesInvoice.create(invoice)
 ```
 
-### Update existing sales invoice
+#### Update existing sales invoice
 
 ```ruby
 invoice = Pina::SalesInvoice.find(2016000001)
 invoice.status = :confirmed
 Pina::SalesInvoice.update(2016000001, invoice)
 ```
+
+### Sales Orders
+
+#### All sales orders
+
+```ruby
+Pina::SalesOrder.all
+```
+
+Gets all sales orders from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+orders = Pina::SalesOrder.all
+orders.next_page
+```
+
+```ruby
+orders = Pina::SalesOrder.all
+orders.previous_page
+
+orders.first_page
+```
+
+#### Fetching specific sales order
+
+```ruby
+Pina::SalesOrder.find(order_id)
+```
+
+### Receivables
+
+#### All receivables
+
+```ruby
+Pina::Receivable.all
+```
+
+Gets all receivables from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+receivables = Pina::Receivable.all
+receivables.next_page
+```
+
+```ruby
+invoices = Pina::Receivable.all
+invoices.previous_page
+
+invoices.first_page
+```
+
+#### Fetching specific receivable
+
+```ruby
+Pina::Receivable.find(invoice_id)
+```
+
+NOTE: receivables are being calculated from your DB, they do not correspond
+with any table in your database, you can access related invoice simply:
+
+```ruby
+receivable = Pina::Receivable.find(invoice_id)
+receivable.invoice
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

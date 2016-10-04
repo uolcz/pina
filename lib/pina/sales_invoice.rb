@@ -1,3 +1,7 @@
+require 'pina/models/sales_item'
+require 'pina/models/sales_invoice'
+require 'pina/collections/sales_invoice'
+
 module Pina
   class SalesInvoice
     class << self

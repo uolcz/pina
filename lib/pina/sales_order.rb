@@ -1,3 +1,7 @@
+require 'pina/models/sales_item'
+require 'pina/models/sales_order'
+require 'pina/collections/sales_order'
+
 module Pina
   class SalesOrder
     class << self
@@ -9,6 +13,15 @@ module Pina
         response = Pina::RestAdapter.get(:sales_orders, id)
 
         return Pina::Models::SalesOrder.new(attributes(response)) if
+          response.ok?
+
+        response
+      end
+
+      def where(hash, page = nil)
+        response = Pina::RestAdapter.get(:sales_orders, hash)
+
+        return Pina::Collections::SalesOrder.new(attributes(response)) if
           response.ok?
 
         response

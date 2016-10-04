@@ -7,22 +7,14 @@ require 'uri'
 
 require 'pina/utils/pagination'
 
+require 'pina/collections/base'
+
 require 'pina/contact'
 require 'pina/sales_invoice'
 require 'pina/version'
 require 'pina/rest_adapter'
 require 'pina/sales_order'
-
-require 'pina/models/address'
-require 'pina/models/contact'
-require 'pina/models/sales_item'
-require 'pina/models/sales_invoice'
-require 'pina/models/sales_order'
-
-require 'pina/collections/base'
-require 'pina/collections/contact'
-require 'pina/collections/sales_invoice'
-require 'pina/collections/sales_order'
+require 'pina/receivable'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
