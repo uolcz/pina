@@ -27,6 +27,15 @@ module Pina
         response
       end
 
+      def where(hash, page = nil)
+        response = Pina::RestAdapter.get(:sales_invoices, hash)
+
+        return Pina::Collections::SalesInvoice.new(attributes(response)) if
+          response.ok?
+
+        response
+      end
+
       def create(sales_invoice)
         response = Pina::RestAdapter.post(:sales_invoices, sales_invoice)
 
