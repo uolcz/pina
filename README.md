@@ -185,14 +185,6 @@ invoices.first_page
 Pina::Receivable.find(invoice_id)
 ```
 
-NOTE: receivables are being calculated from your DB, they do not correspond
-with any table in your database, you can access related invoice simply:
-
-```ruby
-receivable = Pina::Receivable.find(invoice_id)
-receivable.invoice
-```
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
