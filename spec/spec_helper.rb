@@ -6,8 +6,8 @@ require 'factory_girl'
 require 'dotenv'
 Dotenv.load
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+require 'simplecov'
+SimpleCov.start
 
 require 'factories/contact'
 require 'factories/sales_invoice'

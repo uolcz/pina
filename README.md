@@ -185,6 +185,35 @@ invoices.first_page
 Pina::Receivable.find(invoice_id)
 ```
 
+### Processed Documents
+
+#### All processed documents
+
+```ruby
+Pina::ProcessedDocument.all
+```
+
+Gets all processed documents from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+documents = Pina::ProcessedDocument.all
+documents.next_page
+```
+
+```ruby
+documents = Pina::ProcessedDocument.all
+documents.previous_page
+
+documents.first_page
+```
+
+#### Fetching specific processed document
+
+```ruby
+Pina::ProcessedDocument.find(gid)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
