@@ -4,16 +4,10 @@ module Pina
       include Virtus.model
 
       attribute :gid
-      attribute :cuser
-      attribute :ctime
-      attribute :muser
-      attribute :mtime
-      attribute :isvalid
-      attribute :islocked
       attribute :external_id
       attribute :status
       attribute :table
-      attribute :period
+      attribute :date
       attribute :user
       attribute :number_of_created_documents
       attribute :document_creation_time

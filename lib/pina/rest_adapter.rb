@@ -26,6 +26,13 @@ module Pina
         Response.new(request.response_code, request.body)
       end
 
+      def delete(resource, id = nil)
+        fail ConfigurationNotSet unless Pina.configuration
+
+        request = Typhoeus.delete(url(resource, id), headers:  auth)
+        Response.new(request.response_code, request.body)
+      end
+
       private
 
       def content_type

@@ -35,6 +35,15 @@ module Pina
         response
       end
 
+      def delete(id)
+        response = Pina::RestAdapter.delete(:processed_documents, id)
+
+        return Pina::Models::ProcessedDocument.new(attributes(response)) if
+          response.ok?
+
+        response
+      end
+
       private
 
       def attributes(response)
