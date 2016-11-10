@@ -58,7 +58,7 @@ module Pina
     end
 
     def base_url
-      @base_url ||= SCHEME + tenant + API_PATH + "#{api_version}/"
+      @base_url = SCHEME + tenant + API_PATH + "#{api_version}/"
     end
   end
 end
