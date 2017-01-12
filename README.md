@@ -220,6 +220,59 @@ Pina::ProcessedDocument.find(gid)
 Pina::ProcessedDocument.delete(gid)
 ```
 
+### MyBankAccounts
+
+#### All my bank accoutns
+
+```ruby
+Pina::MyBankAccount.all
+```
+
+Gets all bank accounts from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+bank_accounts = Pina::MyBankAccount.all
+bank_accounts.next_page
+```
+
+```ruby
+bank_accounts = Pina::MyBankAccount.all
+bank_accounts.previous_page
+
+bank_accounts.first_page
+```
+
+#### Fetching specific bank account
+
+```ruby
+Pina::MyBankAccount.find('csob_czk')
+```
+
+This ID you can find under attribute `bank_account_id`
+
+
+#### Create new MyBankAccount
+
+```ruby
+params = {
+  bank_account: 'XXXXXXXXX/XXXX',
+  currency_id: 'CZK',
+  bank_account_id: 'XXXX'
+}
+
+bank_account = Pina::Models::MyBankAccount.new(params)
+Pina::MyBankAccount.create(bank_account)
+```
+
+#### Update existing bank account
+
+```ruby
+bank_account = Pina::MyBankAccount.find('existing')
+bank_account.download_type = 'none'
+Pina::MyBankAccount.update('existing', bank_account)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

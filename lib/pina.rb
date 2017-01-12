@@ -16,6 +16,7 @@ require 'pina/rest_adapter'
 require 'pina/sales_order'
 require 'pina/receivable'
 require 'pina/processed_document'
+require 'pina/my_bank_account'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
