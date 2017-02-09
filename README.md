@@ -273,6 +273,44 @@ bank_account.download_type = 'none'
 Pina::MyBankAccount.update('existing', bank_account)
 ```
 
+### UploadedDocuments
+
+#### All Uploaded documents
+
+```ruby
+Pina::UploadedDocument.all
+```
+
+Gets all uploaded documents from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+uploaded_documents = Pina::UploadedDocument.all
+uploaded_documents.next_page
+```
+
+```ruby
+uploaded_documents = Pina::UploadedDocument.all
+uploaded_documents.previous_page
+
+uploaded_documents.first_page
+```
+
+#### Fetching specific uploaded document (by ID)
+
+```ruby
+Pina::UploadedDocument.find(1)
+```
+
+#### Update existing uploaded document
+
+```ruby
+uploaded_document = Pina::UploadedDocument.find(1)
+uploaded_document.state = 'processed'
+Pina::UploadedDocument.update(1, uploaded_document)
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
