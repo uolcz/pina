@@ -5,21 +5,32 @@ http_interactions:
     uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha
     body:
       encoding: US-ASCII
-      string: acquisition_country_id&&business_entity&company_number&consumption_country_id&contact_id&contract_id&country_id=CZ&created_at&creator&creator_id&days_till_due_date&department_id&duplicate_variable_symbol=false&external_id&hidden&import_received_documents=P&language_id&modifier&modifier_id&name=test&note&percent_discount&price_list&price_list_id&response&status&sipo_number&specific_symbol&tin&unreliable_payer&updated_at&vat_payer=false&vatin=CZ05609101
+      string: acquisition_country_id&&business_entity&company_number&consumption_country_id&contact_id&contract_id&country_id=CZ&created_at&creator&creator_id&days_till_due_date&department_id&duplicate_variable_symbol=false&external_id&hidden&import_received_documents=P&language_id&modifier&modifier_id&name=test&note&percent_discount&price_list&price_list_id&response&status&sipo_number&specific_symbol&tin&unreliable_payer&updated_at&vat_payer=false&vatin=CZ05846501
     headers: {}
   response:
     status:
-      code: 422
-      message: Unprocessable Entity
+      code: 200
+      message: OK
     headers:
       Content-Length:
-      - '253'
+      - '2994'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"message":"Validation failed","errors":[{"resource":"Contact","field":"vatin","code":"is
-        not unique."}],"documentation_url":"https://test.ucetnictvi.bonobo.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha"}}'
+      string: '{"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha"},"creator":{"user_id":"pickova"},"modifier":{"user_id":"demo"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":"27169278","contact_id":"uol_praha","consumption_country_id":null,"country_id":"CZ","created_at":"2004-11-04T20:44:39.024+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"test","note":null,"percent_discount":0.0,"received_invoice_public_id_setting":"unique","received_invoice_variable_symbol_setting":"same_as_no","status":"valid","sipo_number":null,"specific_symbol":27169278,"tin":null,"unreliable_payer":false,"updated_at":"2017-03-09T22:05:40.483+01:00","vat_payer":false,"vatin":"CZ05846501","addresses":[{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_stepankova_8","address_types":[],"building_number":null,"city":"Praha
+        5","country_id":"CZ","created_at":"2015-01-13T16:56:46+01:00","email":"info@ucetnictvi-on-line.cz","external_id":null,"hidden":true,"mobile_phone":"+420
+        775164687","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"150
+        00","status":"valid","street":"Štěpánkova 595/8","updated_at":"2015-01-13T16:56:46+01:00","url":"http://www.ucetnictvi-on-line.cz"},{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_na_valentince","address_types":[],"building_number":null,"city":"Praha
+        5","country_id":"CZ","created_at":"2015-01-13T16:57:52+01:00","email":"info@ucetnictvi-on-line.cz","external_id":null,"hidden":true,"mobile_phone":"+420
+        775164687","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"150
+        00","status":"valid","street":"Na Valentince 644/15","updated_at":"2015-01-13T16:57:52+01:00","url":"http://www.ucetnictvi-on-line.cz"},{"creator":{"user_id":"uoladm"},"modifier":{"user_id":"uoladm"},"address_id":"praha_5_pekarska_10a","address_types":["accounting"],"building_number":"695/10a","city":"Praha
+        5","country_id":"CZ","created_at":"2016-08-02T15:58:38+02:00","email":"info@uol.cz","external_id":null,"hidden":false,"mobile_phone":"+420
+        775164687","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"155
+        00","status":"valid","street":"Pekařská","updated_at":"2016-08-02T15:58:38+02:00","url":"http://www.uol.cz"},{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_pekarska_14","address_types":[],"building_number":null,"city":"Praha
+        5","country_id":"CZ","created_at":"2013-09-04T14:41:05+02:00","email":"info@uol.cz","external_id":null,"hidden":false,"mobile_phone":"+420
+        775164687","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"155
+        00","status":"valid","street":"Pekařská 628/14","updated_at":"2016-08-02T15:58:38+02:00","url":"http://www.uol.cz"}]}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 16:16:14 GMT
+  recorded_at: Thu, 09 Mar 2017 21:05:41 GMT
 recorded_with: VCR 3.0.3

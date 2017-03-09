@@ -9,7 +9,7 @@ FactoryGirl.define do
 
     factory :contact_diff_vatin do
       name 'test'
-      vatin 'CZ05609101'
+      vatin 'CZ05846501'
     end
   end
 end

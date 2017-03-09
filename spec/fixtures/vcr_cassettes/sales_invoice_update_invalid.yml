@@ -22,5 +22,5 @@ http_interactions:
         not included in the list"},{"resource":"SalesInvoice","field":"delivery_note","code":"is
         not included in the list"}],"documentation_url":"https://test.ucetnictvi.bonobo.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2017000002"}}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 16:16:31 GMT
+  recorded_at: Thu, 09 Mar 2017 20:49:37 GMT
 recorded_with: VCR 3.0.3
