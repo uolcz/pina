@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Pina::Contact do
-  let(:valid_id)           { 'testovaci' }
+  let(:valid_id)           { 'uol_praha' }
   let(:invalid_id)         { 'imaginary' }
   let(:resource)           { FactoryGirl.build(:contact) }
   let(:invalid_resource)   { Pina::Models::Contact.new(vatin: 'arbitrary') }
@@ -27,7 +27,7 @@ RSpec.describe Pina::Contact do
 
       it 'searches contacts by ico' do
         VCR.use_cassette 'contact_find_by_ico' do
-          contact = Pina::Contact.find_by(ico: '27169278')
+          contact = Pina::Contact.find_by(company_number: '27169278')
 
           expect(contact.name).to eq 'Účetnictví on-line, s.r.o.'
         end

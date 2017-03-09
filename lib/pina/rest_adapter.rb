@@ -4,36 +4,79 @@ module Pina
       def get(resource, id_or_params = nil)
         fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.get(url(resource, id_or_params), headers:  auth)
-        Response.new(request.response_code, request.body)
+        uri = URI(url(resource, id_or_params))
+
+        request = Net::HTTP::Get.new(uri)
+        headers(false).each do |k, v|
+          request[k] = v
+        end
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code, response.body)
       end
 
       def post(resource, payload)
         fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.post(url(resource, nil), headers: auth
-          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
+        uri = URI(url(resource, nil))
 
-        Response.new(request.response_code, request.body)
+        request = Net::HTTP::Post.new(uri)
+        headers.each do |k, v|
+          request[k] = v
+        end
+        request.set_form_data(payload.to_h)
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code, response.body)
       end
 
       def patch(resource, id, payload)
         fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.patch(url(resource, id), headers: auth
-          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
+        uri = URI(url(resource, id))
 
-        Response.new(request.response_code, request.body)
+        request = Net::HTTP::Patch.new(uri)
+        headers.each do |k, v|
+          request[k] = v
+        end
+        request.set_form_data(payload.to_h)
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code, response.body)
       end
 
       def delete(resource, id = nil)
         fail ConfigurationNotSet unless Pina.configuration
 
-        request = Typhoeus.delete(url(resource, id), headers:  auth)
-        Response.new(request.response_code, request.body)
+        uri = URI(url(resource, id))
+
+        request = Net::HTTP::Delete.new(uri)
+        headers(false).each do |k, v|
+          request[k] = v
+        end
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code, response.body)
       end
 
       private
+
+      def headers(type = true)
+        return auth.merge(content_type) if type
+        auth
+      end
 
       def content_type
         {
@@ -43,9 +86,9 @@ module Pina
       end
 
       def auth
-        { 'Authorization' => 'Basic ' + Base64
-          .strict_encode64("#{Pina.configuration.email}:"\
-                           "#{Pina.configuration.api_token}")
+        {
+          'Authorization' => 'Basic ' + Base64
+          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}")
         }
       end
 
@@ -67,14 +110,12 @@ module Pina
       attr_accessor :body, :status_code
 
       def initialize(status_code, body)
-        raise Pina::ConnectionError if status_code == 0
-
         @status_code = status_code
         @body        = body
       end
 
       def ok?
-        status_code == 200 || status_code == 201
+        status_code == '200' || status_code == '201'
       end
 
       def to_hash

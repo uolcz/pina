@@ -13,14 +13,12 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '229'
+      - '395'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"items":[],"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts","pagination":{"first":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts?page=1","last":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts?page=0"}}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: https://test.ucetnictvi.bonobo.cz/api/v1/contacts?vatin=wring-vatin
-  recorded_at: Tue, 05 Apr 2016 14:05:40 GMT
-recorded_with: VCR 3.0.1
+      string: '{"items":[],"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts","pagination":{"first":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts?vatin=wrong-vatin\u0026hidden=all\u0026vat_payer=all\u0026business_entity=all\u0026page=1","last":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts?vatin=wrong-vatin\u0026hidden=all\u0026vat_payer=all\u0026business_entity=all\u0026page=0"}}}'
+    http_version: 
+  recorded_at: Thu, 09 Mar 2017 16:16:20 GMT
+recorded_with: VCR 3.0.3

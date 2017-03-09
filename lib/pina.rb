@@ -1,8 +1,8 @@
 require 'active_support'
 require 'base64'
 require 'json'
-require 'typhoeus'
 require 'virtus'
+require 'net/http'
 require 'uri'
 
 require 'pina/utils/pagination'

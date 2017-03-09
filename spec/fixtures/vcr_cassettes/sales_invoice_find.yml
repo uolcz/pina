@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2016000096
+    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2017000002
     body:
       encoding: US-ASCII
       string: ''
@@ -10,77 +10,15 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
+      Content-Length:
+      - '2012'
       Content-Type:
       - application/json
-      Content-Length:
-      - '1938'
-      Etag:
-      - W/"cfa023488e40741a2d7acae0ef5cecb0"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b12745ae-e9cf-4684-9cfe-f787eb760d10
-      X-Runtime:
-      - '0.171057'
-      Vary:
-      - Origin
-      Server:
-      - WEBrick/1.3.1 (Ruby/2.3.0/2015-12-25)
-      Date:
-      - Mon, 01 Feb 2016 12:19:47 GMT
-      Connection:
-      - Keep-Alive
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJfbWV0YSI6eyJocmVmIjoiaHR0cHM6Ly9ocm9uZWstZmFudG96emktZGV2
-        LmxvY2FsaG9zdDozMDAwL2FwaS92MS9zYWxlc19pbnZvaWNlcy8yMDE2MDAw
-        MDk2In0sImFjY291bnRpbmdfYWRkcmVzcyI6eyJhZGRyZXNzX2lkIjoidHly
-        c292YV8yMDgtcmV2bmljZSJ9LCJidXllcl9hZGRyZXNzIjp7ImFkZHJlc3Nf
-        aWQiOm51bGx9LCJiYW5rX2FjY291bnQiOnsiYmFua19hY2NvdW50X2lkIjoi
-        cmZiX2N6ayJ9LCJjcmVhdG9yIjp7InVzZXJfaWQiOiJ1b2xhZG0ifSwiZGVs
-        aXZlcnlfYWRkcmVzcyI6eyJhZGRyZXNzX2lkIjpudWxsfSwiZGVwYXJ0bWVu
-        dCI6eyJkZXBhcnRtZW50X2lkIjoib3RlYyJ9LCJkb2N1bWVudF9yZWNpcGll
-        bnRfYWRkcmVzcyI6eyJhZGRyZXNzX2lkIjpudWxsfSwibGlua2VkX2RvYyI6
-        bnVsbCwibG9nbyI6eyJ1cmwiOiIvbG9nb3MvaHJvbmVrLWZhbnRvenppLWRl
-        di8yLmdpZiJ9LCJtb2RpZmllciI6eyJ1c2VyX2lkIjoidW9sYWRtIn0sIm9y
-        ZGVyIjp7Im9yZGVyX2lkIjpudWxsfSwiY29udHJhY3QiOnsiY29udHJhY3Rf
-        aWQiOm51bGx9LCJzaGlwcGVyIjp7Il9tZXRhIjpudWxsfSwiYnV5ZXIiOnsi
-        X21ldGEiOnsiaHJlZiI6Imh0dHBzOi8vaHJvbmVrLWZhbnRvenppLWRldi5s
-        b2NhbGhvc3Q6MzAwMC9hcGkvdjEvY29udGFjdHMvYWJhc3RvX3Nfcl9vIn19
-        LCJpdGVtcyI6W10sImNhbmNlbGxhdGlvbl9kYXRlIjpudWxsLCJjb25zdGFu
-        dF9zeW1ib2wiOjMwOCwiY29uc3VtcHRpb25fY291bnRyeV9pZCI6IkNaIiwi
-        Y3JlYXRlZF9hdCI6IjIwMTYtMDItMDFUMTM6MTk6MDkrMDE6MDAiLCJkZWxp
-        dmVyeV9ub3RlIjpmYWxzZSwiZGVsaXZlcnlfbm90ZV9ub3RlIjpudWxsLCJk
-        ZWxpdmVyeV9ub3RlX3RleHQiOm51bGwsImR1ZV9kYXRlIjoiMjAxNi0wMi0x
-        MyIsImV4Y2hhbmdlX3JhdGUiOm51bGwsImV4dGVybmFsX2lkIjpudWxsLCJp
-        bnZvaWNlX2lkIjoyMDE2MDAwMDk2LCJpc3N1ZV9kYXRlIjoiMjAxNi0wMi0w
-        MiIsIm5vdGUiOiJQxZlldnpldMOtIGEgcG9kcGlzIHTDqXRvIGZha3R1cnks
-        IHDFmcOtcGFkbsSbIHMgbsOtbSBzb3V2aXNlasOtY8OtaG8gZG9kYWPDrWhv
-        IGxpc3R1LCBkZWtsYXJ1amUgdXphdsWZZW7DrSBzbWxvdXZ5IHZlIHNteXNs
-        dSBvYmNob2Ruw61obyB6w6Frb27DrWt1LiBQcm9kw6F2YWrDrWPDrW11IHZ6
-        bmlrw6EgdsWvxI1pIGt1cHVqw61jw61tdSwgdiBwxZnDrXBhZMSbIG5lemFw
-        bGFjZW7DrSBjZW55IGRvZGFuw6lobyB6Ym/FvsOtIMO6xI10b3ZhbsOpaG8g
-        dG91dG8gZmFrdHVyb3UgdmUgbGjFr3TEmyBzcGxhdG5vc3RpLCBuw6Fyb2sg
-        bmEgw7rEjXRvdsOhbsOtIHNtbHV2bsOtIHBva3V0eSB2ZSB2w73FoWkgMCw1
-        JSB6IGRsdcW+bsOpIMSNw6FzdGt5IHphIGthxb5kw70gZGVuIHByb2RsZW7D
-        rSBzZSB6YXBsYWNlbsOtbS4gRG8gw7pwbG7DqWhvIHphcGxhY2Vuw60gesWv
-        c3RhdsOhIHpib8W+w60gbWFqZXRrZW0gZmlybXkgRC1NRURJQSwgcy5yLm8u
-        IChwYXIuIDQ0NSBPWikiLCJwYXltZW50X21ldGhvZCI6ImJhbmtfdHJhbnNm
-        ZXIiLCJwZXJjZW50X2Rpc2NvdW50IjowLjAsInB1YmxpY19pZCI6IjIwMTYw
-        MDAwOTYiLCJyb3VuZGluZyI6IjAuMCIsInN0YXR1cyI6InZhbGlkIiwic2Vu
-        ZF9ieV9lbWFpbCI6ZmFsc2UsInNlbmRfYnlfbWFpbCI6ZmFsc2UsInNoaXBw
-        aW5nX21ldGhvZCI6bnVsbCwic3BlY2lmaWNfc3ltYm9sIjoyNTYyMDIwNywi
-        dGF4X3BheW1lbnRfZGF0ZSI6IjIwMTYtMDItMDEiLCJ0ZXh0IjpudWxsLCJ0
-        b3RhbF9hbW91bnQiOm51bGwsInR5cGUiOiJzdGFuZGFyZCIsInVwZGF0ZWRf
-        YXQiOiIyMDE2LTAyLTAxVDEzOjE5OjA5KzAxOjAwIiwidmFyaWFibGVfc3lt
-        Ym9sIjoyMDE2MDAwMDk2LCJ2YXQxX2Ftb3VudCI6bnVsbCwidmF0Ml9hbW91
-        bnQiOm51bGwsInZhdDNfYW1vdW50IjpudWxsLCJ2YXRfZG9jdW1lbnQiOnRy
-        dWV9
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: http://hronek-fantozzi-dev.localhost:3000/api/v1/sales_invoices/2016000096
-  recorded_at: Mon, 01 Feb 2016 12:19:47 GMT
-recorded_with: VCR 2.9.3
+      encoding: UTF-8
+      string: '{"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2017000002"},"accounting_address":{"address_id":"praha_5_pekarska_10a"},"buyer_address":{"address_id":null},"bank_account":{"bank_account_id":"cs_czk"},"creator":{"user_id":"antasa"},"currency":{"currency_id":"CZK"},"delivery_address":{"address_id":null},"department":{"department_id":"praha"},"document_recipient_address":{"address_id":null},"linked_doc":null,"logo":{"url":null},"modifier":{"user_id":"antasa"},"order":{"order_id":null},"contract":{"contract_id":null},"shipper":{"_meta":null},"buyer":{"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha"}},"items":[{"creator":{"user_id":"antasa"},"delivery":{"delivery_id":null},"department":{"department_id":null},"modifier":{"user_id":"antasa"},"product":{"product_id":"drmaj"},"contract":{"contract_id":null},"batch":null,"created_at":"2017-03-09T16:58:37+01:00","description":"Rohlik","expiration_date":null,"external_id":null,"id":71711,"percent_discount":0.0,"quantity":"1.0","status":"valid","serial_numbers":null,"supplier_code":null,"unit_price":"100000.0","unit_price_vat_inclusive":"121000.0","updated_at":"2017-03-09T16:58:37+01:00","vat_rate":21.0,"vat_calculation_method":"from_below"}],"cancellation_date":null,"constant_symbol":308,"consumption_country_id":"CZ","created_at":"2017-03-09T16:58:37+01:00","delivery_note":false,"delivery_note_note":null,"delivery_note_text":null,"due_date":"2017-03-23","exchange_rate":null,"external_id":null,"invoice_id":2017000002,"issue_date":"2017-03-09","note":"","payment_method":"bank_transfer","percent_discount":0.0,"public_id":"2017000002","rounding":null,"status":"valid","send_by_email":false,"send_by_mail":false,"shipping_method":null,"specific_symbol":27169278,"tax_payment_date":"2017-03-09","text":null,"total_amount":"121000.0","type":"standard","updated_at":"2017-03-09T16:58:37+01:00","variable_symbol":2017000002,"vat1_amount":null,"vat2_amount":null,"vat3_amount":null,"vat_document":true}'
+    http_version: 
+  recorded_at: Thu, 09 Mar 2017 16:16:21 GMT
+recorded_with: VCR 3.0.3
