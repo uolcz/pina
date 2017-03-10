@@ -34,7 +34,7 @@ module Pina
           http.request(request)
         end
 
-        Response.new(response.code, response.body)
+        Response.new(response.code.to_i, response.body)
       end
 
       def net_http_class_for(method)
@@ -73,7 +73,7 @@ module Pina
       end
 
       def ok?
-        status_code == '200' || status_code == '201'
+        status_code == 200 || status_code == 201
       end
 
       def to_hash

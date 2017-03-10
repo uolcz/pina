@@ -25,7 +25,7 @@ shared_examples 'resource' do |_response_class|
       it 'returns 404 status code' do
         VCR.use_cassette "#{subject.class}_find_invalid" do
           response = described_class.find(invalid_id)
-          expect(response.status_code).to eq '404'
+          expect(response.status_code).to eq 404
         end
       end
     end
@@ -51,7 +51,7 @@ shared_examples 'resource' do |_response_class|
       it 'returns 422 status code' do
         VCR.use_cassette "#{subject.class}_create_invalid" do
           response = described_class.create(invalid_resource)
-          expect(response.status_code).to eq '422'
+          expect(response.status_code).to eq 422
         end
       end
     end
@@ -78,7 +78,7 @@ shared_examples 'resource' do |_response_class|
       it 'returns 422 status code' do
         VCR.use_cassette "#{subject.class}_update_invalid" do
           response = described_class.update(valid_id, invalid_resource)
-          expect(response.status_code).to eq '422'
+          expect(response.status_code).to eq 422
         end
       end
     end
@@ -94,7 +94,7 @@ shared_examples 'resource' do |_response_class|
       it 'returns 404 status code' do
         VCR.use_cassette "#{subject.class}_update_nonexisting" do
           response = described_class.update(invalid_id, resource)
-          expect(response.status_code).to eq '404'
+          expect(response.status_code).to eq 404
         end
       end
     end
