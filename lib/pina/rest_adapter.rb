@@ -14,7 +14,7 @@ module Pina
       end
 
       def delete(resource, id = nil)
-        net_http_for(:patch, resource, id)
+        net_http_for(:delete, resource, id)
       end
 
       private
