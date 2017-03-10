@@ -2,93 +2,51 @@ module Pina
   class RestAdapter
     class << self
       def get(resource, id_or_params = nil)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        uri = URI(url(resource, id_or_params))
-
-        request = Net::HTTP::Get.new(uri)
-        headers(false).each do |k, v|
-          request[k] = v
-        end
-
-        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-          http.request(request)
-        end
-
-        Response.new(response.code, response.body)
+        net_http_for(:get, resource, id_or_params)
       end
 
       def post(resource, payload)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        uri = URI(url(resource, nil))
-
-        request = Net::HTTP::Post.new(uri)
-        headers.each do |k, v|
-          request[k] = v
-        end
-        request.set_form_data(payload.to_h)
-
-        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-          http.request(request)
-        end
-
-        Response.new(response.code, response.body)
+        net_http_for(:post, resource, nil, payload)
       end
 
       def patch(resource, id, payload)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        uri = URI(url(resource, id))
-
-        request = Net::HTTP::Patch.new(uri)
-        headers.each do |k, v|
-          request[k] = v
-        end
-        request.set_form_data(payload.to_h)
-
-        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-          http.request(request)
-        end
-
-        Response.new(response.code, response.body)
+        net_http_for(:patch, resource, id, payload)
       end
 
       def delete(resource, id = nil)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        uri = URI(url(resource, id))
-
-        request = Net::HTTP::Delete.new(uri)
-        headers(false).each do |k, v|
-          request[k] = v
-        end
-
-        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-          http.request(request)
-        end
-
-        Response.new(response.code, response.body)
+        net_http_for(:patch, resource, id)
       end
 
       private
 
-      def headers(type = true)
-        return auth.merge(content_type) if type
-        auth
+      def net_http_for(method, resource, id, payload = nil)
+        fail ConfigurationNotSet unless Pina.configuration
+
+        uri = URI(url(resource, id))
+
+        request = net_http_class_for(method).new(uri)
+        headers.each do |k, v|
+          request[k] = v
+        end
+        request.set_form_data(payload.to_h) if payload
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code, response.body)
       end
 
-      def content_type
-        {
-          'Accept-Encoding' => 'application/json',
-          'Content-Type' =>  'application/json'
-        }
+      def net_http_class_for(method)
+        Kernel.const_get("Net::HTTP::#{method.capitalize}")
       end
 
-      def auth
+      def headers
         {
           'Authorization' => 'Basic ' + Base64
-          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}")
+          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}"),
+          'Accept-Encoding' => 'application/json',
+          'Content-Type' =>  'application/json'
         }
       end
 
