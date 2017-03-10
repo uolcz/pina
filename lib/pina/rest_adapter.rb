@@ -2,50 +2,51 @@ module Pina
   class RestAdapter
     class << self
       def get(resource, id_or_params = nil)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        request = Typhoeus.get(url(resource, id_or_params), headers:  auth)
-        Response.new(request.response_code, request.body)
+        net_http_for(:get, resource, id_or_params)
       end
 
       def post(resource, payload)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        request = Typhoeus.post(url(resource, nil), headers: auth
-          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
-
-        Response.new(request.response_code, request.body)
+        net_http_for(:post, resource, nil, payload)
       end
 
       def patch(resource, id, payload)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        request = Typhoeus.patch(url(resource, id), headers: auth
-          .merge(content_type), body: ActiveSupport::JSON.encode(payload))
-
-        Response.new(request.response_code, request.body)
+        net_http_for(:patch, resource, id, payload)
       end
 
       def delete(resource, id = nil)
-        fail ConfigurationNotSet unless Pina.configuration
-
-        request = Typhoeus.delete(url(resource, id), headers:  auth)
-        Response.new(request.response_code, request.body)
+        net_http_for(:delete, resource, id)
       end
 
       private
 
-      def content_type
-        {
-          'Accept-Encoding' => 'application/json',
-          'Content-Type' =>  'application/json'
-        }
+      def net_http_for(method, resource, id, payload = nil)
+        fail ConfigurationNotSet unless Pina.configuration
+
+        uri = URI(url(resource, id))
+
+        request = net_http_class_for(method).new(uri)
+        headers.each do |k, v|
+          request[k] = v
+        end
+        request.set_form_data(payload.to_h) if payload
+
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+          http.request(request)
+        end
+
+        Response.new(response.code.to_i, response.body)
       end
 
-      def auth
-        { 'Authorization' => 'Basic ' + Base64
-          .strict_encode64("#{Pina.configuration.email}:"\
-                           "#{Pina.configuration.api_token}")
+      def net_http_class_for(method)
+        Kernel.const_get("Net::HTTP::#{method.capitalize}")
+      end
+
+      def headers
+        {
+          'Authorization' => 'Basic ' + Base64
+          .strict_encode64("#{Pina.configuration.email}:#{Pina.configuration.api_token}"),
+          'Accept-Encoding' => 'application/json',
+          'Content-Type' =>  'application/json'
         }
       end
 
@@ -67,8 +68,6 @@ module Pina
       attr_accessor :body, :status_code
 
       def initialize(status_code, body)
-        raise Pina::ConnectionError if status_code == 0
-
         @status_code = status_code
         @body        = body
       end

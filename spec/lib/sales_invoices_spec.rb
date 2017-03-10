@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Pina::SalesInvoice do
-  let(:valid_id)           { 2_016_000_096 }
+  let(:valid_id)           { 2_017_000_002 }
   let(:invalid_id)         { 9_999_999_999 }
   let(:resource)           { FactoryGirl.build(:sales_invoice) }
   let(:invalid_resource)   { Pina::Models::SalesInvoice.new }
