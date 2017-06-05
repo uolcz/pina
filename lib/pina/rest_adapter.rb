@@ -28,7 +28,7 @@ module Pina
         headers.each do |k, v|
           request[k] = v
         end
-        request.set_form_data(payload.to_h) if payload
+        request.body = payload.to_json if payload
 
         response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(request)
