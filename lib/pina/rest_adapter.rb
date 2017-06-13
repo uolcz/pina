@@ -1,5 +1,7 @@
 module Pina
   class RestAdapter
+    include ActiveSupport::JSON
+
     class << self
       def get(resource, id_or_params = nil)
         net_http_for(:get, resource, id_or_params)
@@ -77,7 +79,7 @@ module Pina
       end
 
       def to_hash
-        JSON.parse(body)
+        ActiveSupport::JSON.decode(body)
       end
     end
   end

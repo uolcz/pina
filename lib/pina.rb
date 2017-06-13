@@ -1,6 +1,5 @@
 require 'active_support'
 require 'base64'
-require 'json'
 require 'virtus'
 require 'net/http'
 require 'uri'
