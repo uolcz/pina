@@ -27,7 +27,7 @@ module Pina
   DEFAULT_TENANT      = 'imaginary'
 
   SCHEME              = 'https://'
-  API_PATH            = '.ucetnictvi.bonobo.cz/api/'
+  API_PATH            = '.ucetnictvi.uol.cz/api/'
 
   class << self
     attr_accessor :configuration
