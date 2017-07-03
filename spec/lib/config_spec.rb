@@ -50,7 +50,7 @@ RSpec.describe Pina do
 
       it 'returns base url' do
         expect(Pina.configuration.base_url)
-          .to eq 'https://mine.ucetnictvi.bonobo.cz/api/v1/'
+          .to eq 'https://mine.ucetnictvi.uol.cz/api/v1/'
       end
     end
   end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/imaginary
     body:
       encoding: US-ASCII
       string: acquisition_country_id&&business_entity&company_number&consumption_country_id&contact_id&contract_id&country_id=CZ&created_at&creator&creator_id&days_till_due_date&department_id&duplicate_variable_symbol=false&external_id&hidden&import_received_documents=P&language_id&modifier&modifier_id&name=Testovaci&note&percent_discount&price_list&price_list_id&response&status&sipo_number&specific_symbol&tin&unreliable_payer&updated_at&vat_payer=false&vatin=CZ05839670

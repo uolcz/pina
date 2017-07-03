@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2017000002
+    uri: https://test.ucetnictvi.uol.cz/api/v1/sales_invoices/2017000002
     body:
       encoding: US-ASCII
       string: accounting_address&accounting_address_id&bank_account&bank_account_id&buyer_address&buyer_address_id&buyer&buyer_id&contract&contract_id&creator&creator_id&modifier&modifier_id&delivery_address&delivery_address_id&department&department_id&document_recipient_address&document_recipient_address_id&order&order_id&shipper&shipper_id&linked_doc&linked_doc_number&&cancellation_date&constant_symbol&consumption_country_id&created_at&currency_id&delivery_note&delivery_note_note&delivery_note_text&due_date&exchange_rate&external_id&invoice_id&issue_date&logo&note&payment_method&percent_discount&public_id&response&rounding&send_by_email&send_by_mail&shipping_method&specific_symbol&status&tax_payment_date&text&total_amount&type&updated_at&variable_symbol&vat1_amount&vat2_amount&vat3_amount&vat_document
@@ -20,7 +20,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"Validation failed","errors":[{"resource":"SalesInvoice","field":"send_by_email","code":"is
         not included in the list"},{"resource":"SalesInvoice","field":"delivery_note","code":"is
-        not included in the list"}],"documentation_url":"https://test.ucetnictvi.bonobo.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/2017000002"}}'
+        not included in the list"}],"documentation_url":"https://test.ucetnictvi.uol.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/sales_invoices/2017000002"}}'
     http_version: 
   recorded_at: Thu, 09 Mar 2017 20:49:37 GMT
 recorded_with: VCR 3.0.3
