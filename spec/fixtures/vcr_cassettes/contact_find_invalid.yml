@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/imaginary
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/imaginary
     body:
       encoding: US-ASCII
       string: ''

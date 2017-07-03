@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/uol_praha
     body:
       encoding: US-ASCII
       string: acquisition_country_id&&business_entity&company_number&consumption_country_id&contact_id&contract_id&country_id&created_at&creator&creator_id&days_till_due_date&department_id&duplicate_variable_symbol&external_id&hidden&import_received_documents&language_id&modifier&modifier_id&name&note&percent_discount&price_list&price_list_id&response&status&sipo_number&specific_symbol&tin&unreliable_payer&updated_at&vat_payer&vatin=arbitrary
@@ -19,7 +19,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"message":"Validation failed","errors":[{"resource":"Contact","field":"vatin","code":"has
-        to start with country code and it''s max length is 14 characters."}],"documentation_url":"https://test.ucetnictvi.bonobo.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha"}}'
+        to start with country code and it''s max length is 14 characters."}],"documentation_url":"https://test.ucetnictvi.uol.cz/faq/ruby_api","_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/contacts/uol_praha"}}'
     http_version: 
   recorded_at: Thu, 09 Mar 2017 20:48:11 GMT
 recorded_with: VCR 3.0.3

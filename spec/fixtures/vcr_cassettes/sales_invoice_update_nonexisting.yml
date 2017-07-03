@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/sales_invoices/9999999999
+    uri: https://test.ucetnictvi.uol.cz/api/v1/sales_invoices/9999999999
     body:
       encoding: US-ASCII
       string: accounting_address&accounting_address_id&bank_account&bank_account_id&buyer_address&buyer_address_id&buyer&buyer_id=alzacz_as&contract&contract_id&creator&creator_id&modifier&modifier_id&delivery_address&delivery_address_id&department&department_id&document_recipient_address&document_recipient_address_id&order&order_id&shipper&shipper_id&linked_doc&linked_doc_number&&cancellation_date&constant_symbol&consumption_country_id&created_at&currency_id&delivery_note&delivery_note_note&delivery_note_text&due_date=2017-03-16+21%3A48%3A05+%2B0100&exchange_rate&external_id&invoice_id&issue_date=2017-03-09+22%3A48%3A05+%2B0100&logo&note&payment_method=bank_transfer&percent_discount&public_id&response&rounding&send_by_email&send_by_mail&shipping_method&specific_symbol&status&tax_payment_date&text&total_amount&type=standard&updated_at&variable_symbol&vat1_amount&vat2_amount&vat3_amount&vat_document

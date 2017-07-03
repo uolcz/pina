@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/uol_praha
     body:
       encoding: US-ASCII
       string: acquisition_country_id&&business_entity&company_number&consumption_country_id&contact_id&contract_id&country_id=CZ&created_at&creator&creator_id&days_till_due_date&department_id&duplicate_variable_symbol=false&external_id&hidden&import_received_documents=P&language_id&modifier&modifier_id&name=test&note&percent_discount&price_list&price_list_id&response&status&sipo_number&specific_symbol&tin&unreliable_payer&updated_at&vat_payer=false&vatin=CZ05846501
@@ -18,7 +18,7 @@ http_interactions:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"_meta":{"href":"https://test.ucetnictvi.bonobo.cz/api/v1/contacts/uol_praha"},"creator":{"user_id":"pickova"},"modifier":{"user_id":"demo"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":"27169278","contact_id":"uol_praha","consumption_country_id":null,"country_id":"CZ","created_at":"2004-11-04T20:44:39.024+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"test","note":null,"percent_discount":0.0,"received_invoice_public_id_setting":"unique","received_invoice_variable_symbol_setting":"same_as_no","status":"valid","sipo_number":null,"specific_symbol":27169278,"tin":null,"unreliable_payer":false,"updated_at":"2017-03-09T22:05:40.483+01:00","vat_payer":false,"vatin":"CZ05846501","addresses":[{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_stepankova_8","address_types":[],"building_number":null,"city":"Praha
+      string: '{"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/contacts/uol_praha"},"creator":{"user_id":"pickova"},"modifier":{"user_id":"demo"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":"27169278","contact_id":"uol_praha","consumption_country_id":null,"country_id":"CZ","created_at":"2004-11-04T20:44:39.024+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"test","note":null,"percent_discount":0.0,"received_invoice_public_id_setting":"unique","received_invoice_variable_symbol_setting":"same_as_no","status":"valid","sipo_number":null,"specific_symbol":27169278,"tin":null,"unreliable_payer":false,"updated_at":"2017-03-09T22:05:40.483+01:00","vat_payer":false,"vatin":"CZ05846501","addresses":[{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_stepankova_8","address_types":[],"building_number":null,"city":"Praha
         5","country_id":"CZ","created_at":"2015-01-13T16:56:46+01:00","email":"info@ucetnictvi-on-line.cz","external_id":null,"hidden":true,"mobile_phone":"+420
         775164687","name":"Účetnictví on-line, s.r.o.","phone":"+420 272047000","postal_code":"150
         00","status":"valid","street":"Štěpánkova 595/8","updated_at":"2015-01-13T16:56:46+01:00","url":"http://www.ucetnictvi-on-line.cz"},{"creator":{"user_id":"vanzura"},"modifier":{"user_id":"vanzura"},"address_id":"praha_5_na_valentince","address_types":[],"building_number":null,"city":"Praha
