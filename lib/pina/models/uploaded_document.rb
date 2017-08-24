@@ -7,6 +7,7 @@ module Pina
       attribute :file
       attribute :created_at
       attribute :state
+      attribute :note
     end
   end
 end
