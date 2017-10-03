@@ -32,9 +32,7 @@ module Pina
         end
         request.body = payload.to_json if payload
 
-        response = Net::HTTP.start(uri.hostname, uri.port,
-                                   use_ssl: true,
-                                   verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+        response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(request)
         end
 
