@@ -220,6 +220,35 @@ Pina::ProcessedDocument.find(gid)
 Pina::ProcessedDocument.delete(gid)
 ```
 
+### Stat Processed Documents
+
+#### All stat processed documents
+
+```ruby
+Pina::StatProcessedDocument.all
+```
+
+Gets all stat processed documents from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+stats = Pina::StatProcessedDocument.all
+stats.next_page
+```
+
+```ruby
+stats = Pina::StatProcessedDocument.all
+stats.previous_page
+
+stats.first_page
+```
+
+#### Fetching specific stat processed document
+
+```ruby
+Pina::StatProcessedDocument.find(gid)
+```
+
 ### MyBankAccounts
 
 #### All my bank accoutns
