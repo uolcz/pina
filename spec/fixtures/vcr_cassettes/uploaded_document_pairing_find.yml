@@ -1,0 +1,24 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://web:3000/api/v1/uploaded_documents/1/pairings/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '381'
+    body:
+      encoding: UTF-8
+      string: '{"_meta":{"href":"https://web:3000/api/v1/uploaded_documents/1"},"id":1,"file":"/customers/donat-ftz-dev/uploaded_documents/document_10.1.2017_cc925ba9b1602584.pdf","state":"unprocessed","note":"","created_at":"2017-11-16T15:58:41+01:00","document_pairings":[{"document_pairable_type":"purchase_invoice","document_pairable_id":2017000004,"created_at":"2017-12-05T13:34:39+01:00"}]}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 14:05:39 GMT
+recorded_with: VCR 4.0.0

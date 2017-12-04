@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support'
 require 'base64'
 require 'virtus'
@@ -6,6 +8,8 @@ require 'uri'
 
 require 'pina/utils/pagination'
 
+require 'pina/models/errors'
+require 'pina/models/error'
 require 'pina/collections/base'
 
 require 'pina/contact'
@@ -15,9 +19,11 @@ require 'pina/rest_adapter'
 require 'pina/sales_order'
 require 'pina/receivable'
 require 'pina/processed_document'
+require 'pina/petty_cash_disburstment'
 require 'pina/stat_processed_document'
 require 'pina/my_bank_account'
 require 'pina/uploaded_document'
+require 'pina/uploaded_document_pairing'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
@@ -27,8 +33,7 @@ module Pina
   DEFAULT_EMAIL       = 'dummy@email.com'
   DEFAULT_TENANT      = 'imaginary'
 
-  SCHEME              = 'https://'
-  API_PATH            = '.ucetnictvi.uol.cz/api/'
+  API_HOST            = 'ucetnictvi.uol.cz'
 
   class << self
     attr_accessor :configuration
@@ -41,8 +46,9 @@ module Pina
   end
 
   class Configuration
-    attr_accessor :api_token, :email, :tenant
+    attr_accessor :api_token, :email, :api_host, :use_ssl, :tenant
     attr_reader :api_version
+    attr_writer :base_url
 
     def initialize
       set_defaults
@@ -52,15 +58,21 @@ module Pina
       @api_version = DEFAULT_API_VERSION
       @email       = DEFAULT_EMAIL
       @tenant      = DEFAULT_TENANT
+      @api_host    = API_HOST
+      @use_ssl     = true
       @base_url    = nil
     end
 
-    def base_url=(base_url)
-      @base_url = base_url
+    def schema
+      use_ssl ? 'https://' : 'http://'
+    end
+
+    def tenant_formatted
+      @tenant.blank? ? '' : @tenant + '.'
     end
 
     def base_url
-      @base_url = SCHEME + tenant + API_PATH + "#{api_version}/"
+      @base_url = schema + tenant_formatted + api_host + '/api/' + "#{api_version}/"
     end
   end
 end

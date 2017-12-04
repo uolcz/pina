@@ -1,0 +1,19 @@
+version: "2"
+
+volumes:
+  pina-sync:
+    external: true
+  gem_store_235:
+    external: true
+
+services:
+  web:
+    build:
+      context: .
+    command: bash
+    tty: true
+    stdin_open: true
+    volumes:
+      - gem_store_235:/gems
+      - .:/app
+      - pina-sync:/app:nocopy

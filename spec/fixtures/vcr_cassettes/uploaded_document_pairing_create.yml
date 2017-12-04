@@ -1,0 +1,24 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://web:3000/api/v1/uploaded_documents/1/pairings/
+    body:
+      encoding: UTF-8
+      string: '{"document_pairable_type":"purchase_invoice","document_pairable_id":2017000004}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '3'
+    body:
+      encoding: UTF-8
+      string: '200'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 14:06:44 GMT
+recorded_with: VCR 4.0.0
