@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '249'
+    body:
+      encoding: UTF-8
+      string: '{"status":"401","code":"0002","message":"Authentication failed. Please
+        provide valid e-mail and token.","developerMessage":"Http authentication headers
+        are present but credentials decoded from them don''t seem valid. Check if
+        you encoded them well."}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 11:29:28 GMT
+recorded_with: VCR 4.0.0

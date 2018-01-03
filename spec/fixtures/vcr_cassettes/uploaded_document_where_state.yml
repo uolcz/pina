@@ -1,0 +1,24 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?state=processed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '250'
+    body:
+      encoding: UTF-8
+      string: '{"items":[],"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents","pagination":{"first":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=1","last":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=0"}}}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 14:03:22 GMT
+recorded_with: VCR 4.0.0

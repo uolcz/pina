@@ -1,0 +1,26 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://web:3000/api/v1/uploaded_documents/
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost\r\nContent-Disposition: form-data; name=\"neco\"\r\n\r\n1\r\n-------------RubyMultipartPost--\r\n\r\n"
+    headers: {}
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '169'
+    body:
+      encoding: UTF-8
+      string: '{"status":"400","code":"0009","message":"Upload failed. Error: file
+        is missing","developerMessage":"Upload failed. Most likely no file uploaded.
+        Error: file is missing"}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 14:05:37 GMT
+recorded_with: VCR 4.0.0

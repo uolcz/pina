@@ -4,3 +4,5 @@ Documentation:
 Metrics/ClassLength:
   Max: 130
 
+Metrics/LineLength:
+  Max: 120

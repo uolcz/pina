@@ -25,15 +25,50 @@ Or install it yourself as:
 
     $ gem install pina
 
+## Docker dev setup
+To open development environment in docker:
+1) install prerequisites
+`gem install docker-sync`
+2) run
+```sh
+docker volume create --name=gem_store_235
+docker-sync start
+docker-compose run web bash
+```
+
+## Fantozzi API coverage
+| Resource                | All   | Find  | Find_by | Where | Create | Update | Delete |
+| ----------------------- | :---: | :---: | :-----: | :---: | :-----:| :----: | :----: |
+| Contacts                | o     | o     | o       | o     | o      | o      | -      |
+| MyBankAccount           | o     | o     | -       | o     | o      | o      | -      |
+| PettyCashDisburstment   | o     | -     | -       | -     | -      | -      | -      |
+| ProcessedDocument       | o     | o     | -       | o     | -      | -      | o      |
+| Receivable              | o     | o     | -       | o     | -      | -      | -      |
+| SalesInvoice            | o     | o     | -       | o     | o      | o      | -      |
+| SalesOrder              | o     | o     | -       | o     | -      | -      | -      |
+| StatProcessedDocument   | o     | o     | -       | o     | -      | -      | -      |
+| UploadedDocument        | o     | o     | -       | o     | o      | o      | -      |
+| UploadedDocumentPairing | -     | -     | -       | -     | o      | -      | -      |
+
+Resources not mentioned = resources not covered.
+
 ## Usage
 
 Before you start using Pina you have to configure it.
 
 ```ruby
 Pina.configure do |config|
-  config.email = 'your_email@domain.com'
-  config.tenant = 'your tenant database name'
-  config.api_token = 'your secret token'
+  config.email      = 'your_email@domain.com'
+  config.tenant     = 'your tenant database name'
+  config.api_token  = 'your secret token'
+end
+```
+
+Optionally, you can configure Pina to run against other than production instance of Fantozzi:
+```ruby
+Pina.configure do |config|
+  config.api_host = 'localhost:3000'
+  config.use_ssl  =  true | false   # defaults to true
 end
 ```
 
@@ -156,33 +191,11 @@ orders.first_page
 Pina::SalesOrder.find(order_id)
 ```
 
-### Receivables
+### Petty Cash Disburstments
 
-#### All receivables
-
+#### All petty cash disburstments
 ```ruby
-Pina::Receivable.all
-```
-
-Gets all receivables from your database. Results are paginated and you can access
-first, next or previous page like this:
-
-```ruby
-receivables = Pina::Receivable.all
-receivables.next_page
-```
-
-```ruby
-invoices = Pina::Receivable.all
-invoices.previous_page
-
-invoices.first_page
-```
-
-#### Fetching specific receivable
-
-```ruby
-Pina::Receivable.find(invoice_id)
+Pina::PettyCashDisburstment.all
 ```
 
 ### Processed Documents
@@ -218,6 +231,35 @@ Pina::ProcessedDocument.find(gid)
 
 ```ruby
 Pina::ProcessedDocument.delete(gid)
+```
+
+### Receivables
+
+#### All receivables
+
+```ruby
+Pina::Receivable.all
+```
+
+Gets all receivables from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+receivables = Pina::Receivable.all
+receivables.next_page
+```
+
+```ruby
+invoices = Pina::Receivable.all
+invoices.previous_page
+
+invoices.first_page
+```
+
+#### Fetching specific receivable
+
+```ruby
+Pina::Receivable.find(invoice_id)
 ```
 
 ### Stat Processed Documents
@@ -338,7 +380,13 @@ uploaded_document = Pina::UploadedDocument.find(1)
 uploaded_document.state = 'processed'
 Pina::UploadedDocument.update(1, uploaded_document)
 ```
-
+### UploadedDocumentPairing
+#### Pair uploaded document with a book-keeping document
+```ruby
+Pina::UploadedDocumentPairing.create(uploaded_document_id: 1,
+                                     document_pairable_type: 'purchase_invoice',
+                                     document_pairable_id: 201700001)
+```
 
 ## Development
 

@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test.ucetnictvi.uol.cz/api/v1/contacts/
+    body:
+      encoding: UTF-8
+      string: '{"acquisition_country_id":null,"addresses":[],"business_entity":null,"company_number":null,"consumption_country_id":null,"contact_id":null,"contract_id":null,"country_id":null,"created_at":null,"creator":null,"creator_id":null,"days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":null,"external_id":null,"hidden":null,"import_received_documents":null,"language_id":null,"modifier":null,"modifier_id":null,"name":"bla","note":null,"percent_discount":null,"price_list":null,"price_list_id":null,"response":null,"status":null,"sipo_number":null,"specific_symbol":null,"tin":null,"unreliable_payer":null,"updated_at":null,"vat_payer":null,"vatin":null}'
+    headers: {}
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '249'
+    body:
+      encoding: UTF-8
+      string: '{"status":"401","code":"0002","message":"Authentication failed. Please
+        provide valid e-mail and token.","developerMessage":"Http authentication headers
+        are present but credentials decoded from them don''t seem valid. Check if
+        you encoded them well."}'
+    http_version: 
+  recorded_at: Tue, 05 Dec 2017 11:29:28 GMT
+recorded_with: VCR 4.0.0
