@@ -13,12 +13,13 @@ http_interactions:
       message: Created
     headers:
       Content-Length:
-      - '880'
+      - '898'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/contacts/testovaci"},"creator":{"user_id":"demo"},"modifier":{"user_id":"demo"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":null,"contact_id":"testovaci","consumption_country_id":null,"country_id":"CZ","created_at":"2017-03-09T22:03:41.682+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"Testovaci","note":null,"percent_discount":0.0,"received_invoice_public_id_setting":"unique","received_invoice_variable_symbol_setting":"same_as_no","status":"valid","sipo_number":null,"specific_symbol":null,"tin":null,"unreliable_payer":false,"updated_at":"2017-03-09T22:03:41.682+01:00","vat_payer":false,"vatin":"CZ05839670","addresses":[]}'
-    http_version: 
-  recorded_at: Thu, 09 Mar 2017 21:03:42 GMT
-recorded_with: VCR 3.0.3
+      string: '{"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/contacts/testovaci"},"creator":{"user_id":"demo"},"modifier":{"user_id":"demo"},"contract":{"contract_id":null},"acquisition_country_id":null,"business_entity":true,"company_number":null,"contact_id":"testovaci","consumption_country_id":null,"country_id":"CZ","created_at":"2017-03-09T22:03:41.682+01:00","days_till_due_date":null,"department_id":null,"duplicate_variable_symbol":false,"external_id":null,"hidden":false,"import_received_documents":"P","language_id":null,"name":"Testovaci","note":null,"percent_discount":0.0,"received_invoice_public_id_setting":"unique","received_invoice_variable_symbol_setting":"same_as_no","status":"valid","sipo_number":null,"specific_symbol":null,"tin":null,"unreliable_payer":false,"updated_at":"2017-03-09T22:03:41.682+01:00","vat_payer":false,"vatin":"CZ05839670","addresses":[],"bank_accounts":[]}'
+    http_version:
+  recorded_at: Fri, 08 Feb 2019 12:36:09 GMT
+recorded_with: VCR 4.0.0
+

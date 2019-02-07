@@ -5,6 +5,7 @@ module Pina
 
       attribute :acquisition_country_id
       attribute :addresses, Array[Address]
+      attribute :bank_accounts, Array[ContactBankAccount]
       attribute :business_entity
       attribute :company_number
       attribute :consumption_country_id

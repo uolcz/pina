@@ -1,4 +1,5 @@
 require 'pina/models/address'
+require 'pina/models/contact_bank_account'
 require 'pina/models/contact'
 require 'pina/collections/contact'
 
