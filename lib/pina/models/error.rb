@@ -6,7 +6,7 @@ module Pina
       attribute :status_code
       attribute :message
       attribute :errors, Array[Models::Errors]
-        
+
       def ok?
         status_code == 200 || status_code == 201
       end

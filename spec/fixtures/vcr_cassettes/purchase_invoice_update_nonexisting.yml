@@ -1,0 +1,25 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://test.ucetnictvi.uol.cz/api/v1/purchase_invoices/9999999999
+    body:
+      encoding: UTF-8
+      string: '{"seller":null,"seller_id":"alzacz_as","contract":null,"contract_id":null,"creator":null,"creator_id":null,"modifier":null,"modifier_id":null,"department":null,"department_id":null,"order":null,"order_id":null,"shipper":null,"shipper_id":null,"items":[],"date_of_receipt":null,"due_date":"2019-07-17T11:37:17.422+02:00","issue_date":"2019-07-10T11:37:17.423+02:00","tax_payment_date":"2019-07-09T11:37:17.423+02:00","bank_code":null,"bank_country_id":"CZ","iban_or_account":"35-6420840257/0100","account_number":null,"reduce_vat_deduction":null,"constant_symbol":null,"percent_discount":null,"external_id":null,"iban":null,"invoice_id":null,"gid":null,"status":null,"isdoc":null,"note":null,"payment_method":"bank_transfer","exchange_rate":null,"rounding":null,"shipping_method":null,"specific_symbol":null,"total_amount":null,"type":"standard","vat_document":null,"vat1_amount":null,"vat2_amount":null,"vat3_amount":null,"variable_symbol":20190029,"public_id":20190029}'
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '155'
+    body:
+      encoding: UTF-8
+      string: '{"status":"404","code":"0004","message":"Record doesn''t exist.","developerMessage":"Record
+        doesn''t exist, make sure that you''re requesting correct object"}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2019 09:37:21 GMT
+recorded_with: VCR 4.0.0

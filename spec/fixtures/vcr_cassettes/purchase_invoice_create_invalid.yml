@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test.ucetnictvi.uol.cz/api/v1/purchase_invoices/
+    body:
+      encoding: UTF-8
+      string: '{"seller":null,"seller_id":null,"contract":null,"contract_id":null,"creator":null,"creator_id":null,"modifier":null,"modifier_id":null,"department":null,"department_id":null,"order":null,"order_id":null,"shipper":null,"shipper_id":null,"items":[],"date_of_receipt":null,"due_date":null,"issue_date":null,"tax_payment_date":null,"bank_code":null,"bank_country_id":null,"iban_or_account":null,"account_number":null,"reduce_vat_deduction":null,"constant_symbol":null,"percent_discount":null,"external_id":null,"iban":null,"invoice_id":null,"gid":null,"status":null,"isdoc":null,"note":null,"payment_method":null,"exchange_rate":null,"rounding":null,"shipping_method":null,"specific_symbol":null,"total_amount":null,"type":null,"vat_document":null,"vat1_amount":null,"vat2_amount":null,"vat3_amount":null,"variable_symbol":null,"public_id":null}'
+    headers: {}
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '440'
+    body:
+      encoding: UTF-8
+      string: '{"message":"Validation failed","errors":[{"resource":"PurchaseInvoice","field":"seller","code":"can''t
+        be blank"},{"resource":"PurchaseInvoice","field":"base","code":"Bank account
+        or IBAN has to be given if invoice is paid with bank transfer."},{"resource":"PurchaseInvoice","field":"base","code":"IBAN
+        or counterparty bank account with bank code and country are invalid."}],"documentation_url":"https://test.ucetnictvi.uol.cz/faq/ruby_api"}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2019 09:37:20 GMT
+recorded_with: VCR 4.0.0

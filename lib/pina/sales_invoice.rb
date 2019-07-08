@@ -27,7 +27,7 @@ module Pina
         response
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:sales_invoices, hash)
 
         return Pina::Collections::SalesInvoice.new(attributes(response)) if

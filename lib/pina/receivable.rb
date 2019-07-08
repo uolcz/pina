@@ -17,7 +17,7 @@ module Pina
         response
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:receivables, hash)
 
         return Pina::Collections::Receivable.new(attributes(response)) if

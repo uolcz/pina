@@ -11,7 +11,7 @@ RSpec.describe Pina::UploadedDocument do
 
   describe 'all' do
     it 'returns all uploaded documents' do
-      VCR.use_cassette 'uploaded_document_all', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'uploaded_document_all', match_requests_on: %i[method path] do
         expect(Pina::UploadedDocument.all).to be_a Pina::Collections::UploadedDocument
       end
     end
@@ -19,7 +19,7 @@ RSpec.describe Pina::UploadedDocument do
 
   describe '#find' do
     it 'returns uploaded document by id' do
-      VCR.use_cassette 'uploaded_document_find_by_id', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'uploaded_document_find_by_id', match_requests_on: %i[method path] do
         document = Pina::UploadedDocument.find(1)
 
         expect(document.id).to eq 1
@@ -29,7 +29,7 @@ RSpec.describe Pina::UploadedDocument do
 
   describe 'where' do
     it 'searches uploaded document by state' do
-      VCR.use_cassette 'uploaded_document_where_state', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'uploaded_document_where_state', match_requests_on: %i[method path] do
         documents = Pina::UploadedDocument.where(state: 'processed')
 
         expect(documents).to respond_to :items
@@ -38,7 +38,7 @@ RSpec.describe Pina::UploadedDocument do
     end
 
     it 'returns nil if not found' do
-      VCR.use_cassette 'uploaded_document_where_not_found', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'uploaded_document_where_not_found', match_requests_on: %i[method path] do
         documents = Pina::UploadedDocument.where(state: 'invalid_type')
 
         expect(documents).to respond_to :items
@@ -52,7 +52,7 @@ RSpec.describe Pina::UploadedDocument do
     let(:good_file) { File.open('spec/fixtures/document.pdf') }
 
     it 'uploads new document' do
-      VCR.use_cassette 'uploaded_document_create', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'uploaded_document_create', match_requests_on: %i[method path] do
         document = Pina::UploadedDocument.create(file: good_file)
 
         expect(document).to be_a Pina::Models::UploadedDocument

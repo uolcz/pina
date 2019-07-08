@@ -18,7 +18,7 @@ module Pina
         response
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:contacts, hash)
 
         return Pina::Collections::Contact.new(attributes(response)) if

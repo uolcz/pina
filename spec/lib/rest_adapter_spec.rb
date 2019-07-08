@@ -48,7 +48,7 @@ RSpec.describe Pina::RestAdapter do
         .with(file, 'application/pdf', file.path.split('/').last)
         .once
 
-      VCR.use_cassette 'post_multipart', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'post_multipart', match_requests_on: %i[method path] do
         Pina::RestAdapter.post(:uploaded_documents, { neco: file }, multipart: true)
       end
     end
@@ -56,27 +56,27 @@ RSpec.describe Pina::RestAdapter do
     it 'does not instantiate UploadIO if there is no file in params' do
       expect(UploadIO).not_to receive(:new)
 
-      VCR.use_cassette 'post_multipart_without_file', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'post_multipart_without_file', match_requests_on: %i[method path] do
         Pina::RestAdapter.post(:uploaded_documents, other_payload, multipart: true)
       end
     end
 
     it 'works with open(file)' do
-      VCR.use_cassette 'post_multipart', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'post_multipart', match_requests_on: %i[method path] do
         expect(Pina::RestAdapter.post(:uploaded_documents, { file: file_open }, multipart: true))
           .to be_a Pina::RestAdapter::Response
       end
     end
 
     it 'works with File.open(file)' do
-      VCR.use_cassette 'post_multipart', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'post_multipart', match_requests_on: %i[method path] do
         expect(Pina::RestAdapter.post(:uploaded_documents, { file: file }, multipart: true))
           .to be_a Pina::RestAdapter::Response
       end
     end
 
     it 'accepts file as parameter without failure' do
-      VCR.use_cassette 'post_multipart', match_requests_on: [:method, :path] do
+      VCR.use_cassette 'post_multipart', match_requests_on: %i[method path] do
         expect(Pina::RestAdapter.post(:uploaded_documents, file, multipart: true))
           .to be_a Pina::RestAdapter::Response
       end

@@ -26,7 +26,7 @@ module Pina
         response
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:my_bank_accounts, hash)
 
         return Pina::Collections::MyBankAccount.new(attributes(response)) if
