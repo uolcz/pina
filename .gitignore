@@ -26,6 +26,9 @@ build/
 /vendor/bundle
 /lib/bundler/man/
 
+## RubyMine configuration
+.idea/
+
 ## Docker sync
 .docker-sync/
 
