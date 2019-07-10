@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'active_support'
 require 'base64'
 require 'virtus'
@@ -14,6 +12,7 @@ require 'pina/collections/base'
 
 require 'pina/contact'
 require 'pina/sales_invoice'
+require 'pina/purchase_invoice'
 require 'pina/version'
 require 'pina/rest_adapter'
 require 'pina/sales_order'
@@ -30,10 +29,10 @@ module Pina
   class ConnectionError < StandardError; end
 
   DEFAULT_API_VERSION = :v1
-  DEFAULT_EMAIL       = 'dummy@email.com'
-  DEFAULT_TENANT      = 'imaginary'
+  DEFAULT_EMAIL       = 'dummy@email.com'.freeze
+  DEFAULT_TENANT      = 'imaginary'.freeze
 
-  API_HOST            = 'ucetnictvi.uol.cz'
+  API_HOST            = 'ucetnictvi.uol.cz'.freeze
 
   class << self
     attr_accessor :configuration

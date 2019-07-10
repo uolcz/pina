@@ -62,7 +62,7 @@ module Pina
 
       def headers
         auth_header.merge('Accept-Encoding' => 'application/json',
-                          'Content-Type'    => 'application/json')
+                          'Content-Type' => 'application/json')
       end
 
       def request(uri, method, payload)
@@ -87,6 +87,7 @@ module Pina
 
         payload.map do |key, val|
           next unless val.respond_to?(:path)
+
           payload[key] = UploadIO.new(val, 'application/pdf', val.path.split('/').last)
         end
 
@@ -105,7 +106,7 @@ module Pina
       end
 
       def prepare_params_for_request(params)
-        params.map { |key, value| "#{URI::escape(key.to_s)}=#{URI::escape(value.to_s)}" }.join('&')
+        params.map { |key, value| "#{URI.escape(key.to_s)}=#{URI.escape(value.to_s)}" }.join('&')
       end
 
       def resource_with_namespace(*resource)

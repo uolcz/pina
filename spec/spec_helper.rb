@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'pina'
 require 'webmock/rspec'
 require 'vcr'
@@ -10,6 +10,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'factories/contact'
+require 'factories/purchase_invoice'
 require 'factories/sales_invoice'
 require 'factories/sales_item'
 
@@ -26,7 +27,7 @@ VCR.configure do |config|
   config.before_record { |i| i.response.body.force_encoding 'UTF-8' }
   config.before_record do |i|
     i.request.headers.clear
-    save_headers = %w(Total Per-Page Link Content-Type Content-Length)
+    save_headers = %w[Total Per-Page Link Content-Type Content-Length]
     i.response.headers.select! { |key| save_headers.include? key }
   end
 end

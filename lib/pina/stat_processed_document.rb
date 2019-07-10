@@ -17,7 +17,7 @@ module Pina
         response
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:stat_processed_documents, hash)
 
         return Pina::Collections::StatProcessedDocument.new(attributes(response)) if

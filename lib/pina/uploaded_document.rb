@@ -24,7 +24,7 @@ module Pina
         end
       end
 
-      def where(hash, page = nil)
+      def where(hash, _page = nil)
         response = Pina::RestAdapter.get(:uploaded_documents, hash)
 
         return Pina::Collections::UploadedDocument.new(attributes(response)) if

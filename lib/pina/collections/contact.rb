@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Pina
   module Collections
     class Contact < Base

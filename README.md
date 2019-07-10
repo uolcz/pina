@@ -43,6 +43,7 @@ docker-compose run web bash
 | MyBankAccount           | o     | o     | -       | o     | o      | o      | -      |
 | PettyCashDisburstment   | o     | -     | -       | -     | -      | -      | -      |
 | ProcessedDocument       | o     | o     | -       | o     | -      | -      | o      |
+| PurchaseInvoice         | o     | o     | -       | o     | o      | o      | -      |
 | Receivable              | o     | o     | -       | o     | -      | -      | -      |
 | SalesInvoice            | o     | o     | -       | o     | o      | o      | -      |
 | SalesOrder              | o     | o     | -       | o     | -      | -      | -      |
@@ -231,6 +232,50 @@ Pina::ProcessedDocument.find(gid)
 
 ```ruby
 Pina::ProcessedDocument.delete(gid)
+```
+
+### Purchase Invoices
+
+#### All purchase invoices
+
+```ruby
+Pina::PurchaseInvoice.all
+```
+
+Gets all purchase invocies from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+invoices = Pina::PurchaseInvoice.all
+invoices.next_page
+```
+
+```ruby
+invoices = Pina::PurchaseInvoice.all
+invoices.previous_page
+
+invoices.first_page
+```
+
+#### Fetching specific purchase invoice
+
+```ruby
+Pina::PurchaseInvoice.find(invoice_id)
+```
+
+#### Create new purchase invoice
+
+```ruby
+invoice = Pina::Models::PurchaseInvoice.new
+Pina::PurchaseInvoice.create(invoice)
+```
+
+#### Update existing purchase invoice
+
+```ruby
+invoice = Pina::PurchaseInvoice.find(2016000001)
+invoice.type = :penalty
+Pina::PurchaseInvoice.update(2016000001, invoice)
 ```
 
 ### Receivables
