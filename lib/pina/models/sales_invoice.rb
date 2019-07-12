@@ -67,6 +67,7 @@ module Pina
       attribute :vat2_amount
       attribute :vat3_amount
       attribute :vat_document
+      attribute :gid
 
       def self.to_s
         'sales_invoice'

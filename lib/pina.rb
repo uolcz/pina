@@ -23,6 +23,7 @@ require 'pina/stat_processed_document'
 require 'pina/my_bank_account'
 require 'pina/uploaded_document'
 require 'pina/uploaded_document_pairing'
+require 'pina/document_pairing'
 
 module Pina
   class ConfigurationNotSet < StandardError; end
