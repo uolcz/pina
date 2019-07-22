@@ -40,8 +40,10 @@ docker-compose run web bash
 | Resource                | All   | Find  | Find_by | Where | Create | Update | Delete |
 | ----------------------- | :---: | :---: | :-----: | :---: | :-----:| :----: | :----: |
 | Contacts                | o     | o     | o       | o     | o      | o      | -      |
+| DocumentPairing         | o     | -     | -       | -     | -      | -      | -      |
 | MyBankAccount           | o     | o     | -       | o     | o      | o      | -      |
-| PettyCashDisburstment   | o     | -     | -       | -     | -      | -      | -      |
+| PettyCashDisburstment   | o     | o     | -       | -     | -      | -      | -      |
+| PettyCashIncome         | o     | o     | -       | -     | -      | -      | -      |
 | ProcessedDocument       | o     | o     | -       | o     | -      | -      | o      |
 | PurchaseInvoice         | o     | o     | -       | o     | o      | o      | -      |
 | Receivable              | o     | o     | -       | o     | -      | -      | -      |
@@ -117,6 +119,29 @@ Pina::Contact.create(contact)
 contact = Pina::Contact.find('existing')
 contact.email = 'brand_new@email.com'
 Pina::Contact.update('existing', contact)
+```
+
+### Document pairings
+
+#### All document pairings
+
+```ruby
+Pina::DocumentPairing.all
+```
+
+Gets all document pairings from your database. Results are paginated and you can access
+first, next or previous page like this:
+
+```ruby
+pairings = Pina::DocumentPairing.all
+pairings.next_page
+```
+
+```ruby
+pairings = Pina::DocumentPairing.all
+pairings.previous_page
+
+pairings.first_page
 ```
 
 ### Sales Invoices
@@ -197,6 +222,25 @@ Pina::SalesOrder.find(order_id)
 #### All petty cash disburstments
 ```ruby
 Pina::PettyCashDisburstment.all
+```
+
+#### Fetching specific petty cash disburstment
+
+```ruby
+Pina::PettyCashDisburstment.find(gid)
+```
+
+### Petty Cash Incomes
+
+#### All petty cash incomes
+```ruby
+Pina::PettyCashIncome.all
+```
+
+#### Fetching specific petty cash income
+
+```ruby
+Pina::PettyCashIncome.find(gid)
 ```
 
 ### Processed Documents

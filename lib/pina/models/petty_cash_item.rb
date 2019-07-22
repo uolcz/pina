@@ -2,7 +2,7 @@ require 'pina/models/coercions/nested_value'
 
 module Pina
   module Models
-    class PettyCashDisburstmentItem
+    class PettyCashItem
       include Virtus.model
 
       attribute :created_at
@@ -10,7 +10,7 @@ module Pina
       attribute :creator, NestedValue
       attribute :modifier, NestedValue
       attribute :external_id
-      attribute :rule_id, NestedValue
+      attribute :rule, NestedValue
       attribute :variable_symbol
       attribute :price
       attribute :description

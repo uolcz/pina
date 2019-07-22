@@ -1,0 +1,26 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://test.ucetnictvi.uol.cz/api/v1/petty_cash_disburstments/73216
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '974'
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2018-06-29T14:57:42+02:00","updated_at":"2018-06-29T14:57:42+02:00","creator":{"user_id":"robot"},"modifier":{"user_id":"prosteckyo"},"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/petty_cash_disburstments/73216"},"items":[{"created_at":"2018-06-29T14:57:42+02:00","updated_at":"2018-06-29T14:57:42+02:00","creator":{"user_id":"robot"},"modifier":{"user_id":"robot"},"external_id":null,"rule":{"rule_id":"-faktura"},"variable_symbol":4458551,"price":"1210.0","description":"Úhrada
+        faktury 2018000017","department":{"department_id":null},"contract":{"contract_id":null},"linked_doc_number":2018000017}],"number":2018000001,"issue_date":"2018-04-05","receipt_date":"2018-04-05","note":"Úhrada
+        faktury","coefficient":false,"petty_cash":{"petty_cash_id":"p1_czk"},"department":{"department_id":null},"total":"1210.0","contact":{"contact_id":"alzacz_as"},"contract":{"contract_id":null},"vat_document":false,"confirmed":true,"status":"valid","gid":73216}'
+    http_version: 
+  recorded_at: Mon, 22 Jul 2019 14:19:15 GMT
+recorded_with: VCR 4.0.0

@@ -23,11 +23,18 @@ describe Pina::Models::DocumentPairing do
 
         expect(pairing.document_pairable).to be_a(Pina::Models::PettyCashDisburstment)
       end
+
+      it 'returns petty cash income' do
+        pairing = described_class.new(document_pairable_type: 'petty_cash_income',
+                                      document_pairable: { number: 2_017_001, gid: 1 })
+
+        expect(pairing.document_pairable).to be_a(Pina::Models::PettyCashIncome)
+      end
     end
 
     context 'when pina document type does not exist' do
       it 'returns document_pairable as hash' do
-        pairing = described_class.new(document_pairable_type: 'petty_cash_income',
+        pairing = described_class.new(document_pairable_type: 'not_existing_pina_model',
                                       document_pairable: { number: 2_017_001, gid: 1 })
 
         expect(pairing.document_pairable).to be_a(Hash)

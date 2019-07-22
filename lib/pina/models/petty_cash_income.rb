@@ -2,7 +2,7 @@ require 'pina/models/petty_cash_document'
 
 module Pina
   module Models
-    class PettyCashDisburstment < PettyCashDocument
+    class PettyCashIncome < PettyCashDocument
     end
   end
 end

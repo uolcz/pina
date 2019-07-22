@@ -34,10 +34,10 @@ end
 
 RSpec.configure do |config|
   config.before do
-    Pina.configure do |config|
-      config.email       = ENV['EMAIL']
-      config.tenant      = ENV['TENANT'] || 'test'
-      config.api_token   = ENV['API_TOKEN']
+    Pina.configure do |c|
+      c.email       = ENV['EMAIL']
+      c.tenant      = ENV['TENANT'] || 'test'
+      c.api_token   = ENV['API_TOKEN']
     end
   end
 end
