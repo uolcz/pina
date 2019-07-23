@@ -2,6 +2,8 @@ require 'pina/models/uploaded_document_pairing'
 
 module Pina
   class UploadedDocumentPairing
+    extend Pina::Resource
+
     class << self
       def find(id)
         response = Pina::RestAdapter.get([:uploaded_documents, id, :pairings])
@@ -25,10 +27,6 @@ module Pina
       end
 
       private
-
-      def attributes(response)
-        response.to_hash.merge(response: response)
-      end
 
       def attributes_for_error(response)
         response.to_hash.merge(status_code: response.status_code)

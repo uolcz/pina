@@ -9,6 +9,7 @@ require 'pina/utils/pagination'
 require 'pina/models/errors'
 require 'pina/models/error'
 require 'pina/collections/base'
+require 'pina/resource'
 
 require 'pina/contact'
 require 'pina/sales_invoice'
@@ -47,7 +48,7 @@ module Pina
   end
 
   class Configuration
-    attr_accessor :api_token, :email, :api_host, :use_ssl, :tenant
+    attr_accessor :api_token, :email, :api_host, :use_ssl, :tenant, :default_per_page
     attr_reader :api_version
     attr_writer :base_url
 
@@ -60,6 +61,7 @@ module Pina
       @email       = DEFAULT_EMAIL
       @tenant      = DEFAULT_TENANT
       @api_host    = API_HOST
+      @default_per_page = nil
       @use_ssl     = true
       @base_url    = nil
     end

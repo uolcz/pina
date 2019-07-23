@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.ucetnictvi.uol.cz/api/v1/petty_cash_incomes/
+    uri: https://test.ucetnictvi.uol.cz/api/v1/petty_cash_incomes
     body:
       encoding: US-ASCII
       string: ''
@@ -109,5 +109,5 @@ http_interactions:
         faktury 2018000029","department":{"department_id":null},"contract":{"contract_id":null},"linked_doc_number":2018000029}],"number":2018000012,"issue_date":"2018-06-01","note":"Úhrada
         faktury","petty_cash":{"petty_cash_id":"p1_czk"},"department":{"department_id":"praha"},"total":"257.0","contact":{"contact_id":"bychl_auto_as"},"contract":{"contract_id":null},"vat_document":false,"confirmed":true,"status":"valid","gid":73719}],"_meta":{"href":"http://test.ucetnictvi.uol.cz/api/v1/petty_cash_incomes","pagination":{"first":"http://test.ucetnictvi.uol.cz/api/v1/petty_cash_incomes?page=1","last":"http://test.ucetnictvi.uol.cz/api/v1/petty_cash_incomes?page=1"}}}'
     http_version: 
-  recorded_at: Mon, 22 Jul 2019 13:53:06 GMT
+  recorded_at: Wed, 24 Jul 2019 13:51:27 GMT
 recorded_with: VCR 4.0.0

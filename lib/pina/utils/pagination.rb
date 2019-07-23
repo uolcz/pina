@@ -2,7 +2,7 @@ module Pina
   module Utils
     module Pagination
       def next_page
-        resource.all(extract_next_page)
+        paginate(_meta['pagination']['next'])
       end
 
       def first_page
@@ -10,7 +10,31 @@ module Pina
       end
 
       def previous_page
-        resource.all(extract_prev_page)
+        paginate(_meta['pagination']['previous'])
+      end
+
+      def last_page
+        paginate(_meta['pagination']['last'])
+      end
+
+      def paginate(page_url)
+        params = extract_params(page_url)
+        return unless params&.fetch('page')
+
+        resource.all(params)
+      end
+
+      def collect_items
+        resource = self
+
+        [].tap do |collection|
+          loop do
+            collection.push(*resource.items)
+            resource = resource.next_page
+
+            break unless resource
+          end
+        end
       end
 
       private
@@ -19,20 +43,22 @@ module Pina
         Object.const_get("Pina::#{self.class.to_s.split('::').last}")
       end
 
-      def extract_next_page
-        string = _meta['pagination']['next']
-        return unless string
+      def extract_params(url)
+        return unless url
 
-        index = string.index('?')
-        string[index..-1]
+        index = url.index('?')
+        return unless index
+
+        params_to_hash(url[index + 1..-1])
       end
 
-      def extract_prev_page
-        string = _meta['pagination']['prev']
-        return unless string
-
-        index = string.index('?')
-        string[index..-1]
+      def params_to_hash(params)
+        {}.tap do |params_hash|
+          params.split('&').each do |element|
+            param = element.split('=')
+            params_hash[param.first] = param.last
+          end
+        end
       end
     end
   end

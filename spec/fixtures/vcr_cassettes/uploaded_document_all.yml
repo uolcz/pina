@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents/
+    uri: https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents
     body:
       encoding: US-ASCII
       string: ''
@@ -15,10 +15,10 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '835'
+      - '247'
     body:
       encoding: UTF-8
-      string: '{"items":[{"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents/1"},"id":1,"file":"https://s3.eu-central-1.amazonaws.com/ucetnictvi.uol.cz/customers/test/uploaded_documents/company__bc5075d80bdda4ca.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIMVY5CTLGFVOGK4A%2F20171205%2Feu-central-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171205T140318Z\u0026X-Amz-Expires=604800\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=bd6bbf5bace367aa1cc2d21130056f3908b7f3719827d17b916d809b05ad5f7b","state":"unprocessed","note":"","created_at":"2017-12-05T12:14:53+01:00"}],"_meta":{"href":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents","pagination":{"first":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=1","last":"https://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=1"}}}'
+      string: '{"items":[],"_meta":{"href":"http://test.ucetnictvi.uol.cz/api/v1/uploaded_documents","pagination":{"first":"http://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=1","last":"http://test.ucetnictvi.uol.cz/api/v1/uploaded_documents?page=1"}}}'
     http_version: 
-  recorded_at: Tue, 05 Dec 2017 14:03:21 GMT
+  recorded_at: Wed, 24 Jul 2019 13:51:10 GMT
 recorded_with: VCR 4.0.0
